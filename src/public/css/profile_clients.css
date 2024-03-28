@@ -1,0 +1,250 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+}
+
+.photo-frame {
+    border: 5px solid #ddd;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 120px; 
+    height: 120px; 
+    margin: 0 auto 10px;
+}
+
+
+img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+h1 {
+    color: #333;
+}
+
+.cliente_info {
+    max-width: 100%;
+    margin: 50px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.listaProfiss {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+h2 {
+    background-color: #60b7f1;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+h3 {
+
+    color: #044e80;
+    padding: 5px;
+    text-align: center;
+}
+
+
+p {
+    line-height: 1.5;
+}
+
+
+.chat-container {
+    max-width: 100%;
+    margin: 50px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+    /* background-color: #60b7f1; */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.chat-body {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.message {
+    background-color: #ecf0f1;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.message.sent {
+    background-color: #60b7f1;
+    color: #fff;
+    align-self: flex-end;
+}
+
+.chat-footer {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-footer textarea {
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+.chat-footer button {
+    background-color: #60b7f1;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-footer button:hover {
+    background-color: #206391;
+}
+
+
+button[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+@media only screen and (max-width: 530px) {
+    .container {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        padding: 6px;
+        text-align: center;
+        font-size: 17px;
+    }
+
+    h3 {
+        padding: 3px;
+        text-align: center;
+        font-size: 17px;
+    }
+
+    .chat-header {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .chat-body {
+        max-width: 100%;
+        padding: 10px;
+        max-width: 100%;
+        overflow-y: auto;
+    }
+
+    .message {
+        max-width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .message.sent {
+        max-width: 100%;
+        color: #fff;
+        align-self: flex-end;
+    }
+
+    .chat-footer {
+        max-width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-footer textarea {
+        max-width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: none;
+    }
+
+    .chat-footer button {
+        max-width: 100%;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"] {
+        max-width: 100%;
+        margin-top: 10px;
+        padding: 5px 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

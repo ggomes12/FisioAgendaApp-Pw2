@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/profile_clients.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script defer src="../../public/js/profile_clients.js"></script>
+    <script defer src="../../public/js/chat.js"></script>
+    <title>Perfil clientes</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="photo-frame">
+                <img src="../../public/img/teste.jpeg" alt="foto">
+            </div>
+            <h1>Olá! Seja bem-vindo(a)!</h1>
+        </header>
+
+        <section class="clients_info">
+            <div class="column">
+                <h2>Informações Pessoais</h2>
+                <table>
+                    <tr>
+                        <th>Nome Completo:</th>
+                        <td>Guilherme Gomes</td>
+                    </tr>
+                    <tr>
+                        <th>CPF:</th>
+                        <td>000.000.000-00</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>ggomes.k21@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th>Telefone:</th>
+                        <td>(00) 1234-5678</td>
+                    </tr>
+                </table>
+
+                <div class="column">
+                    <h2>Lista de Profissionais</h2>
+
+                    <div class="listaProfiss">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Nome do profissional:" required>
+    
+                        <label for="especialidade">Especialidade:</label>
+                        <input type="text" id="especialidade" name="especialidade" placeholder="Especialidade" required>
+    
+                        <button type="submit">Pesquisar</button>
+                    </div>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2>Chat FisioAgenda</h2>
+                        <h3>Para confirmar, combine os detalhes para seu atendimento com o profissional.</h3>
+                    </div>
+                    <div class="chat-body" id="chatBody">
+                        <h3></h3>
+                    </div>
+                    <div class="chat-footer">
+                        <textarea id="messageInput" placeholder="Digite sua mensagem..."></textarea>
+                        <button id="sendMessage">Enviar</button>
+                    </div>
+                </div>
+
+                <h2>Agenda de Consultas</h2>
+                <form id="consultaForm">
+                    <label for="dataConsulta">Selecione a Data da Consulta:</label>
+                    <input type="text" id="dataConsulta" name="dataConsulta" readonly required>
+
+                    <label for="horarioConsulta">Horário da Consulta:</label>
+                    <input type="time" id="horarioConsulta" name="horarioConsulta" required>
+
+                    <button type="submit">Marcar Consulta</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+
+</body>
+</html>

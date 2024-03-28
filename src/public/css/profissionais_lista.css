@@ -1,0 +1,56 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+table tbody a {
+    color: #000;
+}
+
+.filter {
+    margin-bottom: 20px;
+}
+
+.filter form div {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.filter form div label {
+    margin-bottom: 8px;
+}
+
+.filter_btn {
+    padding: 8px 20px;
+    background-color: #133b66;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
