@@ -21,13 +21,13 @@ $ git clone https://github.com/ggomes12/FisioAgendaApp-Pw2.git
 ```
 - Build the project:
 ```
-$ search script index.html
+$ search script index.html on the directory index
 ```
 - Run the application:
 ```
 $ open index.html with live server
 ```
 
-The application will start and be accessible at http://localhost:8080.
+The application will start and be accessible at http://127.0.0.1:5500/src/views/index/index.html
 
 
