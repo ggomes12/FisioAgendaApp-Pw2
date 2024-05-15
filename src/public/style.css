@@ -521,7 +521,7 @@ body{
 	border-color:#e6e6e6;
 }
 /* Header Sticky */
-/* .header.sticky .header-inner{
+.header.sticky .header-inner{
 	position:fixed;
 	z-index:999;
 	top:0;
@@ -536,7 +536,7 @@ body{
 	font-size: 14px;
 	padding: 10px;
 	margin: 0;
-} */
+}
 
 
 
