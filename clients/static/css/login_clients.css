@@ -1,0 +1,81 @@
+
+form {
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.input-wrap {
+    width: 100%;
+}
+
+h1 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    /* color: #555; */
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 17px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 30px 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'login proffesional register'
+        'forgot forgot forgot';
+}
+
+.buttons-wrap>a {
+    text-decoration: none;
+    outline: none;
+    padding: 8px 20px;
+    background-color: #2766aa;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 19px;
+}
+
+.btn-login a {
+    grid-area: login;
+}
+
+.btn-proffesional a {
+    grid-area: proffesional;
+}
+
+.btn-register a {
+    grid-area: register;
+}
+
+.btn-forgot {
+    display: flex;
+    justify-content: center;
+    grid-area: forgot;
+}
+
+.btn-forgot a {
+    color: #133b66;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+

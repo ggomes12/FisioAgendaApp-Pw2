@@ -1,0 +1,185 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+}
+
+.photo-frame {
+    border: 5px solid #ddd;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 120px; 
+    height: 120px; 
+    margin: 0 auto 10px;
+}
+
+img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+h1 {
+    color: #333;
+}
+
+.profissional_info {
+    max-width: 100%;
+    margin: 50px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+h2 {
+    background-color: #60b7f1;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+p {
+    line-height: 1.5;
+}
+
+
+.agenda {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    row-gap: 10px;
+    column-gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.dia-agendado {
+    width: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dia-agendado:hover {
+    background-color: #f2f2f2;
+}
+
+.marcadores {
+    display: inline-block;
+    flex-direction: row;
+}
+
+.legenda-vermelha {
+    background-color: red;
+    font-family: 'Arial', sans-serif;
+    width: 20px;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.legenda-verde {
+    background-color: green;
+    font-family: 'Arial', sans-serif;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 530px) {
+    .container {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        padding: 6px;
+        text-align: center;
+        font-size: 17px;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+
+    .agenda {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        row-gap: 10px;
+        column-gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    .dia-agendado {
+        max-width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .marcadores {
+        max-width: 100%;
+        display: inline-block;
+        flex-direction: row;
+    }
+
+    .legenda-vermelha {
+        max-width: 100%;
+        padding: 5px;
+        height: 20px;
+        border-radius: 5px;
+    }
+
+    .legenda-verde {
+        max-width: 100%;
+        padding: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+    }
+}
