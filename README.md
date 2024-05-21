@@ -11,7 +11,7 @@ Make sure you have the following tools installed on your machine:
 
 - IDE (Vscode, Pycharm, etc.) or text editor of your choice
 - Suport Html, Css and Javascript
-- Suport Database Mysql
+- Suport Database SqLite3
 
 ## How to Run
 
@@ -21,13 +21,12 @@ $ git clone https://github.com/ggomes12/FisioAgendaApp-Pw2.git
 ```
 - Build the project:
 ```
-$ search script index.html on the directory index
+$ 
 ```
 - Run the application:
 ```
-$ open index.html with live server
+$ 
 ```
 
-The application will start and be accessible at http://127.0.0.1:5500/src/views/index/index.html
 
 
