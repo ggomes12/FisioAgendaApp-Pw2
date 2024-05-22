@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function(){
 	
 		
@@ -62,3 +63,69 @@ $(document).ready(function(){
 
 	
 } );
+=======
+$(document).ready(function(){
+	
+		
+	$(".color1" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color1.css" );
+		return false;
+	});
+		
+	$(".color2" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color2.css" );
+		return false;
+	});
+		
+	$(".color3" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color3.css" );
+		return false;
+	});
+		
+	$(".color4" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color4.css" );
+		return false;
+	});	
+	$(".color5" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color5.css" );
+		return false;
+	});	
+	$(".color6" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color6.css" );
+		return false;
+	});	
+	$(".color7" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color7.css" );
+		return false;
+	});	
+	$(".color8" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color8.css" );
+		return false;
+	});
+	$(".color9" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color9.css" );
+		return false;
+	});
+	$(".color10" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color10.css" );
+		return false;
+	});
+	$(".color11" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color11.css" );
+		return false;
+	});
+	$(".color12" ).click(function(){
+		$("#colors" ).attr("href", "css/color/color12.css" );
+		return false;
+	});
+	
+	
+	$('.color-plate .color-plate-icon').on( "click", function(){
+		$('.color-plate').toggleClass('active');
+	});
+	
+		
+
+	
+} );
+>>>>>>> 4bcb29b92008c4e6fffb461056593120c8419d5b
