@@ -1,0 +1,17 @@
+
+.choose-buttons {
+    margin: 20px;
+    text-align: center;
+}
+
+.choose-buttons button {
+    padding: 8px 20px;
+    background-color: #2966a7;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 19px;
+}
+
+.choose-buttons button:hover {
+    background-color: #0056b3;
+}
