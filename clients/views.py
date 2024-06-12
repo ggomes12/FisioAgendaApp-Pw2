@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
@@ -78,5 +78,5 @@ def profile_prof(request):
 def profile_client(request):
     return render(request, 'profile_clients.html')
 
-def esqueceu_senha(request):
-    return render(request, 'esqueceu_senha.html')
+# def esqueceu_senha(request):
+#     return render(request, 'esqueceu_senha.html')

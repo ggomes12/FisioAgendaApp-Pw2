@@ -174,17 +174,12 @@
 
         <label>Preencha com seu e-mail para receber instruções sobre como redefinir sua senha.</label>
     
-    
-    
-        <div>
-            <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-        </div>
-    
-        <div class="choose-buttons">
-            <button data-showMsg>Redefinir senha</button>
-            <p class="msg"></p>
-        </div>
+        <form method="post">
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" >Esquecer Senha</button>
+        </form>
     </div>
     </section>
     <!--/ End Error Page -->
