@@ -2,52 +2,30 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Cliente
+from clients.models import Cliente
 
 
 class ClienteForm(UserCreationForm):
+    cpf = forms.CharField(max_length=14)
     email = forms.EmailField(required=True)
     telefone = forms.CharField(max_length=15)
     endereco = forms.CharField(max_length=255)
+    
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password1',
-                  'password2', 'telefone', 'endereco']
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-# class ClienteLoginForm(AuthenticationForm):
-#     username = forms.CharField(
-#         widget=forms.TextInput(
-#             attrs={'class': 'form-control', 'placeholder': 'Nome de usuário'})
-#     )
-#     password = forms.CharField(
-#         widget=forms.PasswordInput(
-#             attrs={'class': 'form-control', 'placeholder': 'Senha'})
-#     )
+                  'password2', 'telefone', 'endereco',  'cpf']
 
 
-# class ProfissionalLoginForm(AuthenticationForm):
-#     username = forms.CharField(
-#         widget=forms.TextInput(
-#             attrs={'class': 'form-control', 'placeholder': 'Nome de usuário'})
-#     )
-#     password = forms.CharField(
-#         widget=forms.PasswordInput(
-#             attrs={'class': 'form-control', 'placeholder': 'Senha'})
-#     )
+class ProfissionalForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    telefone = forms.CharField(max_length=15)
+    endereco = forms.CharField(max_length=255)
+    especialidade = forms.CharField(max_length=100)
+    crefito = forms.CharField(max_length=50)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2',
+                  'telefone', 'endereco', 'especialidade', 'crefito']
