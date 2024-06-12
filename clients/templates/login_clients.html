@@ -6,6 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/login_clients.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/modal.css' %}"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/modal.js' %}"></script> -->
+
     <title>Login clientes</title>
 
 
@@ -34,7 +40,7 @@
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
     
-    <!-- Medipro CSS -->
+    <!-- base CSS -->
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
@@ -96,29 +102,11 @@
                                                 <li><a href="{% url 'index' %}">Pagina inicial</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li><a href="#sobre-nos">Sobre nos </a></li>
-    											<li><a href="#">Contatos </a></li>
-    											<li><a href="#">Paginas <i class="icofont-rounded-down"></i></a>
-    												<ul class="dropdown">
-    													<li><a href="404.html">colocar algo</a></li>
-    												</ul>
-    											</li> -->
-                                        <!-- <li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
-    														<ul class="dropdown">
-    															<li><a href="blog-single.html">Blog Details</a></li>
-    														</ul>
-    													</li> -->
-                                        <!-- <li><a href="contact.html">Contact Us</a></li> -->
                                     </ul>
                                 </nav>
                             </div>
                             <!--/ End Main Menu -->
                         </div>
-                        <!-- <div class="col-lg-2 col-12">
-    								<div class="get-quote">
-    									<a href="login_clients.html" class="btn">Entrar</a>
-    								</div>
-    							</div> -->
                     </div>
                 </div>
             </div>
@@ -126,8 +114,13 @@
         <!--/ End Header Inner -->
     </header>
     <!-- End Header Area -->
+
+    
     <div class="container">
         <form method="post">
+            {% for message in messages %}
+            <div>{{ message }}</div>
+            {% endfor %}
             
             {% csrf_token %}
             {{ form.as_p }}
@@ -140,9 +133,7 @@
                 </div>
             </div>
         </form>
-        {% for message in messages %}
-        <div>{{ message }}</div>
-        {% endfor %}
+
     </div>
 
 
@@ -189,10 +180,9 @@
                             <h2>Novidades</h2>
                             <p>Esteja entre os primeiros a saber sobre nossos tratamentos inovadores, eventos especiais
                                 e ofertas imperdíveis.</p>
-                            <form action="{% static 'mail.php' %}" method="get" target="_blank" class="newsletter-inner">
-                                <input name="email" placeholder="Email" class="common-input"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seu endereco de email'"
-                                    required="" type="email">
+                            <form action="../mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                                <input name="email" placeholder="Email" class="common-input" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Your email address'" required="" type="email">
                                 <button class="button"><i class="icofont icofont-paper-plane"></i></button>
                             </form>
                         </div>

@@ -26,30 +26,33 @@
                 <table>
                     <tr>
                         <th>Nome Completo:</th>
-                        <td>Flavia Maria</td>
+                        <td>{{ user.username }}</td>
                     </tr>
                     <tr>
                         <th>CREFITO:</th>
-                        <td>000.000</td>
+                        <td>{{ user.cliente.crefito }}</td>
                     </tr>
                     <tr>
                         <th>Email:</th>
-                        <td>FlaviaMaria@gmail.com</td>
+                        <td>{{ user.email }}</td>
                     </tr>
                     <tr>
                         <th>Especialidade:</th>
-                        <td>Fisioterapia Aquatica</td>
+                        <td>{{ user.cliente.especialidade }}</td>
                     </tr>
                     <tr>
                         <th>Endereco:</th>
-                        <td>Rua Sao tome das Letras</td>
+                        <td>{{ user.cliente.endereco }}</td>
                     </tr>
                     <tr>
                         <th>Telefone:</th>
-                        <td>(00) 1234-5678</td>
+                        <td>{{ user.cliente.telefone }}</td>
                     </tr>
                 </table>
-            </div>    
+            </div>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout_prof' %}">Logout</a></li>
+            {% endif %}
         </section>
         <h2>Agenda de Consultas</h2>
         <div class="marcadores">
@@ -123,7 +126,13 @@
                 <p id="dataAgendada"></p>
                 <button class="concluir-agendamento-dialog">Concluir</button>
             </div>
+
+            
         </div>
+
+        
     </div>
+
+    
     </body>
 </html>

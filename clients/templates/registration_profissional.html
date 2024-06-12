@@ -40,7 +40,7 @@
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
     
-    <!-- Medipro CSS -->
+    <!-- base CSS -->
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
@@ -139,51 +139,17 @@
 
     <div class="container">
         <h1>Cadastro de Profissional</h1>
-        <form>
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-            </div>
-    
-            <div>
-                <label for="especialidade">Especialidade:</label>
-                <input type="text" id="especialidade" name="especialidade">
-            </div>
-    
-            <div>
-                <label for="crefito">CREFITO:</label>
-                <input type="text" id="crefito" name="crefito">
-            </div>
-            <div>
-                <label for="endereco">Endereco:</label>
-                <input type="text" id="endereco" name="endereco">
-            </div>
-            <div>
-                <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="telefone">
-            </div>
-    
-            <div>
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email">
-            </div>
-            <div>
-                <label for="senha">Senha:</label>
-                <input type="setextnha" id="senha" name="senha">
-            </div>
-            <div>
-                <label for="confir_senha">Confir_senha:</label>
-                <input type="text" id="confir_senha" name="confir_senha">
-            </div>
-    
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- <button type="submit">Cadastrar</button> -->
+                <div class="botao">
+                    <button type="submit">Cadastrar</button>
+                    <p class="msg"></p>
+                </div>
         </form>
-        <div class="botao">
-            <button submit>Cadastrar</button>
-            <p class="msg"></p>
-        </div>
-        <div class="voltar_inicio">
-            <!-- <a href="index.html">Voltar para a pagina inicial</a> -->
-        </div>
+
     </div>
 
 
