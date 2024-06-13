@@ -18,6 +18,7 @@ urlpatterns = [
           name='registration_prof'),
      path('registration_client/', views.registration_client,
           name='registration_client'),
+     path('contact-nos', views.contact, name='contact-nos'),
      #path('esqueceu_senha/', views.esqueceu_senha, name='esqueceu_senha'),
      path('404/', views.pagina_nao_encontrada, name='pagina_nao_encontrada'),
      path('portfolio_details/', views.portfolio_details, name='portfolio_details'),

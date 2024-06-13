@@ -129,5 +129,5 @@ def profile_prof(request):
 def profile_client(request):
     return render(request, 'profile_clients.html')
 
-# def esqueceu_senha(request):
-#     return render(request, 'esqueceu_senha.html')
+def contact(request):
+    return render(request, 'contact.html')
