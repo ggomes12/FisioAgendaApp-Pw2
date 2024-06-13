@@ -1,11 +1,11 @@
 from django.core.exceptions import ValidationError
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from clients.forms import ClienteForm, ProfissionalForm
-from clients.models import Cliente
+from clients.models import Cliente, Profissional
 from django.contrib.auth.decorators import login_required
 
 
@@ -15,90 +15,82 @@ def index(request):
 
 def registration_client(request):
     if request.method == 'POST':
-        form = ClienteForm(request.POST)
-        if form.is_valid():
-            try:
-                # Valida a senha usando os validadores configurados
-                form.clean_password2()
-                # Salva o usuário
-                user = form.save()
-                # Cria um cliente associado ao usuário
-                Cliente.objects.create(
-                    user=user,
-                    telefone=form.cleaned_data['telefone'],
-                    endereco=form.cleaned_data['endereco'],
-                    cpf=form.cleaned_data['cpf']
-                )
-                # Realiza o login
-                login(request, user)
-                messages.success(
-                    request, 'Cadastro realizado com sucesso! Bem-vindo(a), {}!'.format(user.username))
-                return redirect('profile_clients')
-            except ValidationError as e:
-                for error in e:
-                    messages.error(request, error)
+        formClient = ClienteForm(request.POST)
+        if formClient.is_valid():
+            user = formClient.save()
+            Cliente.objects.create(
+                user=user,
+                telefone=formClient.cleaned_data['telefone'],
+                endereco=formClient.cleaned_data['endereco'],
+                cpf=formClient.cleaned_data['cpf']
+            )
+            login(request, user)
+            return redirect('profile_clients')
         else:
             messages.error(request, 'Por favor, corrija os erros abaixo.')
     else:
-        form = ClienteForm()
-    return render(request, 'registration_client.html', {'form': form})
+        formClient = ClienteForm()
+    return render(request, 'registration_client.html', {'form': formClient})
 
 
 def registration_profissional(request):
     if request.method == 'POST':
-        form = ProfissionalForm(request.POST)
-        if form.is_valid():
-            try:
-                # Valida a senha usando os validadores configurados
-                form.clean_password2()
-                # Salva o usuário
-                user = form.save()
-                # Cria um cliente associado ao usuário
-                Cliente.objects.create(
-                    user=user,
-                    telefone=form.cleaned_data['telefone'],
-                    endereco=form.cleaned_data['endereco'],
-                    especialidade=form.cleaned_data['especialidade'],
-                    crefito=form.cleaned_data['crefito'],
-                )
-                # Realiza o login
-                login(request, user)
-                messages.success(
-                    request, 'Cadastro realizado com sucesso! Bem-vindo(a), {}!'.format(user.username))
-                return redirect('profile_prof')
-            except ValidationError as e:
-                for error in e:
-                    messages.error(request, error)
+        formProf = ProfissionalForm(request.POST)
+        if formProf.is_valid():
+            user= formProf.save()
+            Profissional.objects.create(
+                user=user,
+                telefone=formProf.cleaned_data['telefone'],
+                endereco=formProf.cleaned_data['endereco'],
+                especialidade=formProf.cleaned_data['especialidade'],
+                crefito=formProf.cleaned_data['crefito']
+            )
+            login(request, user)
+            return redirect('profile_prof')
         else:
             messages.error(request, 'Por favor, corrija os erros abaixo.')
     else:
-        form = ProfissionalForm()
-    return render(request, 'registration_profissional.html', {'form': form})
+        formProf = ProfissionalForm()
+    return render(request, 'registration_profissional.html', {'form': formProf})
    
+
 def login_clients(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            # Autenticar o usuário
-            user = form.get_user()
-            login(request, user)
-            return redirect('profile_clients')
+        formClient = AuthenticationForm(request, data=request.POST)
+        if formClient.is_valid():
+            user = formClient.get_user()
+            if Cliente.objects.filter(user=user).exists():
+                login(request, user)
+                return redirect('profile_clients')
+            else:
+                messages.error(
+                    request, 'Apenas clientes podem acessar esta página.')
+        else:
+            messages.error(
+                request, 'Credenciais inválidas. Por favor, verifique suas informações.')
     else:
-        form = AuthenticationForm()
-    return render(request, 'login_clients.html', {'form': form})
+        formClient = AuthenticationForm()
+    return render(request, 'login_clients.html', {'form': formClient})
 
 
 def login_profissional(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            # Autenticar o usuário
-            user = form.get_user()
-            login(request, user)
-            return redirect('profile_prof')
+        formProf = AuthenticationForm(request, data=request.POST)
+        if formProf.is_valid():
+            user = formProf.get_user()
+            if Profissional.objects.filter(user=user).exists():
+                login(request, user)
+                return redirect('profile_prof')
+            else:
+                messages.error(
+                    request, 'Apenas profissionais podem acessar esta página.')
+        else:
+            messages.error(
+                request, 'Credenciais inválidas. Por favor, verifique suas informações.')
     else:
-        form = AuthenticationForm()
-    return render(request, 'login_profissional.html', {'form': form})
+        formProf = AuthenticationForm()
+    return render(request, 'login_profissional.html', {'form': formProf})
+
 
 
 def logout_clients(request):
@@ -137,5 +129,5 @@ def profile_prof(request):
 def profile_client(request):
     return render(request, 'profile_clients.html')
 
-# def esqueceu_senha(request):
-#     return render(request, 'esqueceu_senha.html')
+def contact(request):
+    return render(request, 'contact.html')
