@@ -21,8 +21,6 @@
     href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
     rel="stylesheet">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 <!-- Nice Select CSS -->
 <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
 <!-- Font Awesome CSS -->
@@ -44,6 +42,8 @@
 <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
 </head>
 
@@ -164,15 +164,69 @@
 
                 <div class="column">
                     <h2>Lista de Profissionais</h2>
-
-                    <div class="listaProfiss">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Nome do profissional:" required>
-    
-                        <label for="especialidade">Especialidade:</label>
-                        <input type="text" id="especialidade" name="especialidade" placeholder="Especialidade" required>
-    
-                        <button type="submit">Pesquisar</button>
+                    <hr>
+                    <form action="?" method="GET">
+                        <label for="nome"> Nome:</label>
+                        <input type="text" name="nome" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome do profissional">
+                        <label for="especialidade"> Especialidade:</label>
+                        <input type="text" name="especialidade" id="" value="{{ request.GET.especialidade }}" class="p-1 border" autocomplete="off" placeholder="Especialidade">
+                        
+                        <button type="submit" class="btn btn-login">Buscar</button>
+                    
+                        <a href="{% url 'profile_clients' %}" class="btn btn-light">Limpar</a>
+                    
+                    </form>
+                    <hr>
+                    <div class="table table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Especialidade</th>
+                                    <th>CREFITO</th>
+                                    <th>Email</th>
+                                    <th>Agendar consulta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for prof in clients_profissional %}
+                                <tr>
+                                    <td>{{prof.user.username}}</td>
+                                    <td>{{prof.especialidade}}</td>
+                                    <td>{{prof.crefito}}</td>
+                                    <td>{{prof.user.email}}</td>
+                                    <td> 
+                                        <a href="{% url 'profissionais_lista' %}" class="btn btn-login btn-sm" title="Agendar consulta">Agendar Consulta</a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5"> Nenhum profissional registrado </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <ul class="pagination justify-content-center">
+                            {% if clients_profissional.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=1{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">&laquo; Primeira</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ clients_profissional.previous_page_number }}{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">Anterior</a>
+                                </li>
+                            {% endif %}
+                            <li class="page-item">
+                                <span class="page-link">Página {{ clients_profissional.number }} de {{ clients_profissional.paginator.num_pages }}.</span>
+                            </li>
+                            {% if clients_profissional.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ clients_profissional.next_page_number }}{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">Próxima</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ clients_profissional.paginator.num_pages }}{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">Última &raquo;</a>
+                                </li>
+                            {% endif %}
+                        </ul>                        
                     </div>
                 </div>
 
