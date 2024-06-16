@@ -103,7 +103,7 @@ def logout_prof(request):
     return redirect('login_prof')
 
 
-def pagina_nao_encontrada(request):
+def pagina_nao_encontrada(request, exception):
     return render(request, '404/404.html')
 
 
