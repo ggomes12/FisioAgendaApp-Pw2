@@ -7,6 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from clients.forms import ClienteForm, ProfissionalForm
 from clients.models import Cliente, Profissional
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
@@ -102,10 +103,8 @@ def logout_prof(request):
     logout(request)
     return redirect('login_prof')
 
-
 def pagina_nao_encontrada(request, exception):
     return render(request, '404/404.html')
-
 
 def profissionais_lista(request):
     # lógica para obter a lista de profissionais
@@ -127,7 +126,40 @@ def profile_prof(request):
 
 @login_required
 def profile_client(request):
-    return render(request, 'profile_clients.html')
+    # Obtém os parâmetros de busca da URL
+    txt_nome = request.GET.get('nome')
+    txt_especialidade = request.GET.get('especialidade')
+
+    # Filtra a lista de profissionais com base nos parâmetros fornecidos
+    clients_profissional_list = Profissional.objects.all()
+    if txt_nome:
+        clients_profissional_list = clients_profissional_list.filter(user__username__icontains=txt_nome)
+    if txt_especialidade:
+        clients_profissional_list = clients_profissional_list.filter(especialidade__icontains=txt_especialidade)
+
+    # Ordena a lista de profissionais
+    clients_profissional_list = clients_profissional_list.order_by('user__username')
+
+    # Configura a paginação
+    paginator = Paginator(clients_profissional_list, 10)  # 1 profissional por página (ajuste conforme necessário)
+
+    page = request.GET.get('page')
+    try:
+        clients_profissional = paginator.page(page)
+    except PageNotAnInteger:
+        # Se a página não for um inteiro, exibe a primeira página.
+        clients_profissional = paginator.page(1)
+    except EmptyPage:
+        # Se a página estiver fora do intervalo (por exemplo, 9999), exibe a última página de resultados.
+        clients_profissional = paginator.page(paginator.num_pages)
+
+    # Renderiza o template com os profissionais paginados e os parâmetros de busca
+    return render(request, 'profile_clients.html', {
+        'clients_profissional': clients_profissional,
+        'txt_nome': txt_nome,
+        'txt_especialidade': txt_especialidade,
+    })
+
 
 def contact(request):
     return render(request, 'contact.html')

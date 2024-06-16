@@ -5,8 +5,8 @@ from clients import views
 
 
 urlpatterns = [
-    path('login_clients/', views.login_clients, name='login_clients'),
-    path('login_profissional/', views.login_profissional,
+     path('login_clients/', views.login_clients, name='login_clients'),
+     path('login_profissional/', views.login_profissional,
          name='login_prof'),
      path('logout_clients/', views.logout_clients, name='logout_clients'),
      path('logout_prof/', views.logout_prof, name='logout_prof'),

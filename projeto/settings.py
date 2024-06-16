@@ -28,9 +28,10 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'clients', 'templates')
 SECRET_KEY = 'django-insecure-isegur_2ds7&x5_ai9fbpb@7088n=8p&s%z@bc!)adn_h5l=d9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+DEBUG = False #mudança do debug
+
+ALLOWED_HOSTS = ['127.0.0.1'] #colocado o ip do site django
 
 # Application definition
 
