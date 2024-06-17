@@ -106,6 +106,9 @@ def logout_prof(request):
 def pagina_nao_encontrada(request, exception):
     return render(request, '404/404.html')
 
+def handler500(request):
+    return render(request, '500.html')
+
 def profissionais_lista(request):
     # lógica para obter a lista de profissionais
     profissionais = []
