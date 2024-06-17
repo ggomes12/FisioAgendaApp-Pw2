@@ -23,3 +23,13 @@ class Profissional(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class Consulta(models.Model):
+    profissional = models.ForeignKey(
+        Profissional, null=True, on_delete=models.SET_NULL)
+    data = models.DateField()
+    horario = models.TimeField()
+
+    def __str__(self):
+        return f"Consulta com {self.profissional.user.username} ({self.profissional.especialidade}) em {self.data} às {self.horario}"

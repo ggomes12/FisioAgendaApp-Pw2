@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from clients.forms import ClienteForm, ProfissionalForm
-from clients.models import Cliente, Profissional
+from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm
+from clients.models import Cliente, Profissional, Consulta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -163,3 +163,37 @@ def profile_client(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+
+def marcar_consulta(request, nome_fisio, especialidade):
+    try:
+        profissional = Profissional.objects.get(
+            user__username=nome_fisio, especialidade=especialidade)
+    except Profissional.DoesNotExist:
+        messages.error(request, 'Profissional não encontrado.')
+        return redirect('marcar_consulta')
+
+    if request.method == 'POST':
+        form = ConsultaForm(request.POST)
+        if form.is_valid():
+            nova_consulta = form.save(commit=False)
+            nova_consulta.profissional = profissional  
+
+            data = form.cleaned_data['data']
+            horario = form.cleaned_data['horario']
+
+            # Verifica se ja tem prof com agendamento para data e hora
+            if Consulta.objects.filter(data=data, horario=horario, profissional=profissional).exists():
+                messages.error(
+                    request, 'Já existe uma consulta agendada para este médico, dia e horário.')
+            else:
+                nova_consulta.save()
+                messages.success(request, 'Consulta marcada com sucesso!')
+                return redirect('marcar_consulta', nome_fisio=nome_fisio, especialidade=especialidade)
+        else:
+            messages.error(
+                request, 'Erro no formulário. Verifique os dados e tente novamente.')
+    else:
+        form = ConsultaForm(initial={'profissional': profissional})
+
+    return render(request, 'agendamento_consult.html', {'form': form, 'profissional': profissional})
