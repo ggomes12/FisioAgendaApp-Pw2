@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-isegur_2ds7&x5_ai9fbpb@7088n=8p&s%z@bc!)adn_h5l=d9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False #mudança do debug
+DEBUG = True #mudança do debug
 
 ALLOWED_HOSTS = ['*'] #colocado o ip do site django
 
@@ -156,3 +156,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'marcos1245672727@gmail.com'
 EMAIL_HOST_PASSWORD = 'wevkanwyjdvvmhfu'
+
+AUTHENTICATION_BACKENDS = ['clients.backends.AuthBackend']

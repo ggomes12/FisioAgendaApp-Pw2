@@ -123,7 +123,19 @@
             {% endfor %}
             
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.non_field_errors }}
+            <p class="fieldWrapper">
+                {{ form.username.erros }}
+                <label for="{{ form.username.id_for_label }}">E-mail:</label>
+                {{ form.username }}
+
+            </p>
+            <p class="fieldWrapper">
+                {{ form.password.erros }}
+                <label for="{{ form.password.id_for_label }}">Senha:</label>
+                {{ form.password }}
+
+            </p>
             <div class="buttons-wrap">
                 <button type="submit" class="btn-login">Entrar</button>
                 <a class="btn-proffesional" href="{% url 'login_prof' %}">Entre como profissional</a>

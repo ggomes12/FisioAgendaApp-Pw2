@@ -2,7 +2,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from clients.models import Cliente
+from clients.models import Cliente, Consulta, Profissional
 
 
 class ClienteForm(UserCreationForm):
@@ -29,3 +29,16 @@ class ProfissionalForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2',
                   'telefone', 'endereco', 'especialidade', 'crefito']
+
+
+class ConsultaForm(forms.ModelForm):
+    profissional = forms.ModelChoiceField(
+        queryset=Profissional.objects.all(), widget=forms.HiddenInput())
+
+    class Meta:
+        model = Consulta
+        fields = ['profissional', 'data', 'horario']
+        widgets = {
+            'data': forms.DateInput(attrs={'type': 'date'}),
+            'horario': forms.TimeInput(attrs={'type': 'time'}),
+        }
