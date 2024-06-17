@@ -103,10 +103,8 @@ def logout_prof(request):
     logout(request)
     return redirect('login_prof')
 
-
-def pagina_nao_encontrada(request):
+def pagina_nao_encontrada(request, exception):
     return render(request, '404/404.html')
-
 
 def profissionais_lista(request):
     # lógica para obter a lista de profissionais

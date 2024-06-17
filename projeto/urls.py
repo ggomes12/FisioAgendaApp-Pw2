@@ -14,3 +14,5 @@ urlpatterns = [
     path('clients/', include('clients.urls')),
     #path('clients/', include('django.contrib.auth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+pag_not_found = "clients.views.pagina_nao_encontrada"

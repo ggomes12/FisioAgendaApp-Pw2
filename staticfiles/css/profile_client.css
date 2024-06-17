@@ -1,0 +1,137 @@
+/* Estilos para a seção de informações do cliente */
+.clients_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clients_info .column {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.clients_info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.clients_info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clients_info table th,
+.clients_info table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Estilos para a lista de profissionais */
+.listaProfiss {
+    margin-bottom: 20px;
+}
+
+.listaProfiss label,
+.listaProfiss input[type="text"],
+.listaProfiss button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.listaProfiss input[type="text"],
+.listaProfiss button {
+    width: 100%;
+    padding: 10px;
+}
+
+.listaProfiss button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.listaProfiss button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para o chat */
+.chat-container {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.chat-header,
+.chat-body,
+.chat-footer {
+    padding: 10px;
+}
+
+.chat-header {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+}
+
+.chat-body {
+    min-height: 150px;
+}
+
+.chat-footer {
+    display: flex;
+    align-items: center;
+}
+
+.chat-footer textarea {
+    flex: 1;
+    height: 40px;
+    padding: 10px;
+    resize: none;
+}
+
+.chat-footer button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.chat-footer button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para a agenda de consultas */
+#consultaForm {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#consultaForm label,
+#consultaForm input[type="text"],
+#consultaForm input[type="time"],
+#consultaForm button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#consultaForm input[type="text"],
+#consultaForm input[type="time"],
+#consultaForm button {
+    width: 100%;
+    padding: 10px;
+}
+
+#consultaForm button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#consultaForm button:hover {
+    background-color: #0056b3;
+}
