@@ -1,0 +1,46 @@
+/* Estilo para a modal */
+.modal {
+    display: none;
+    /* Esconde a modal por padrão */
+    position: fixed;
+    /* Faz com que a modal fique em posição fixa na tela */
+    z-index: 1;
+    /* Garante que a modal esteja acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Largura total */
+    height: 100%;
+    /* Altura total */
+    overflow: auto;
+    /* Permite rolar a página se a modal for maior que a tela */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fundo preto com transparência */
+}
+
+/* Conteúdo da modal */
+.modal-content {
+    background-color: #fefefe;
+    /* Cor de fundo */
+    margin: 15% auto;
+    /* Centraliza a modal verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Largura da modal */
+}
+
+/* Botão de fechar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

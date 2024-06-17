@@ -138,11 +138,11 @@
             </header>
 
             <section class="clients_info">
-                <div class="column"></div>               
+                <div class="column">
                     <h2>Realize seu Agendamento</h2>
                     <form method="post" id="consultaForm">
                         {% csrf_token %}
-                    
+            
                         {% if messages %}
                         <ul>
                             {% for message in messages %}
@@ -150,15 +150,21 @@
                             {% endfor %}
                         </ul>
                         {% endif %}
-                    
-                        {{ form.as_p }}
-                    
+            
+                        {{ form.profissional }} <!-- Campo oculto -->
+            
+                        <label for="{{ form.data.id_for_label }}">Selecione a Data da Consulta:</label>
+                        {{ form.data }}
+            
+                        <label for="{{ form.horario.id_for_label }}">Horário da Consulta:</label>
+                        {{ form.horario }}
+            
                         <button type="submit">Agendar</button>
-                    
+            
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'logout_clients' %}">Logout</a></li>
                         {% endif %}
-                    
+            
                         {% if form.errors %}
                         <div class="errors">
                             {{ form.errors }}
