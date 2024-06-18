@@ -155,7 +155,13 @@
                         <th>Telefone:</th>
                         <td>{{ user.cliente.telefone }}</td>
                     </tr>
+                    <tr>
+                        <th>E-mail:</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
                 </table>
+                <a href="{% url 'update_profile' %}" class="btn btn-primary">Editar Perfil</a>
+                <a href="{% url 'password_change' %}" class="btn btn-primary">Trocar Senha</a>
 
                 <div class="column">
                     <h2>Lista de Profissionais</h2>

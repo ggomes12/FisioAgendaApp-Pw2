@@ -163,6 +163,7 @@
                         <td>{{ user.profissional.telefone }}</td>
                     </tr>
                 </table>
+                <a href="{% url 'update_professional_profile' %}" class="btn btn-primary">Editar Perfil</a>
             </div>
             {% if user.is_authenticated %}
             

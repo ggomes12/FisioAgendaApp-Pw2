@@ -42,3 +42,52 @@ class ConsultaForm(forms.ModelForm):
             'data': forms.DateInput(attrs={'type': 'date'}),
             'horario': forms.TimeInput(attrs={'type': 'time'}),
         }
+
+
+class UserProfileForm(forms.ModelForm):
+    telefone = forms.CharField(max_length=15, required=False)
+    endereco = forms.CharField(max_length=255, required=False)
+    
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+    
+    def __init__(self, *args, **kwargs):
+        super(UserProfileForm, self).__init__(*args, **kwargs)
+        self.fields['telefone'].initial = self.instance.cliente.telefone
+        self.fields['endereco'].initial = self.instance.cliente.endereco
+
+    def save(self, commit=True):
+        user = super(UserProfileForm, self).save(commit=False)
+        user.cliente.telefone = self.cleaned_data['telefone']
+        user.cliente.endereco = self.cleaned_data['endereco']
+        if commit:
+            user.save()
+            user.cliente.save()
+        return user
+    
+
+class ProfessionalProfileForm(forms.ModelForm):
+    telefone = forms.CharField(max_length=15, required=False)
+    endereco = forms.CharField(max_length=255, required=False)
+    especialidade = forms.CharField(max_length=100, required=False)
+    
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+    
+    def __init__(self, *args, **kwargs):
+        super(ProfessionalProfileForm, self).__init__(*args, **kwargs)
+        self.fields['telefone'].initial = self.instance.profissional.telefone
+        self.fields['endereco'].initial = self.instance.profissional.endereco
+        self.fields['especialidade'].initial = self.instance.profissional.especialidade
+
+    def save(self, commit=True):
+        user = super(ProfessionalProfileForm, self).save(commit=False)
+        user.profissional.telefone = self.cleaned_data['telefone']
+        user.profissional.endereco = self.cleaned_data['endereco']
+        user.profissional.especialidade = self.cleaned_data['especialidade']
+        if commit:
+            user.save()
+            user.profissional.save()
+        return user

@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
-from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm
+from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfileForm, ProfessionalProfileForm
 from clients.models import Cliente, Profissional, Consulta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -221,3 +221,27 @@ def marcar_consulta(request, nome_fisio, especialidade):
         form = ConsultaForm(initial={'profissional': profissional})
 
     return render(request, 'agendamento_consult.html', {'form': form, 'profissional': profissional})
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile_clients')
+    else:
+        form = UserProfileForm(instance=request.user)
+    
+    return render(request, 'update_profile.html', {'form': form})
+
+@login_required
+def update_professional_profile(request):
+    if request.method == 'POST':
+        form = ProfessionalProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile_prof')
+    else:
+        form = ProfessionalProfileForm(instance=request.user)
+    
+    return render(request, 'update_professional_profile.html', {'form': form})

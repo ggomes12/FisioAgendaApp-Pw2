@@ -3,18 +3,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Trocar Senha</title>
+    <title>Atualizar Perfil</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
 <div class="container">
-    <h2>Trocar Senha</h2>
+    <h2>Atualizar Perfil</h2>
     <form method="post">
-                
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Trocar Senha</button>
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
         <a href="{% url 'profile_clients' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 </body>
+</html>
