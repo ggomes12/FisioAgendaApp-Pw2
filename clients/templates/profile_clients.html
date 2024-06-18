@@ -3,11 +3,6 @@
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name='copyright' content=''>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <link rel="stylesheet" href="{% static 'css/profile_client.css' %}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -234,37 +229,15 @@
                         {% endif %}
                     </div>
                 </div>
-
-                <!-- <div class="chat-container">
-                    <div class="chat-header">
-                        <h2>Chat FisioAgenda</h2>
-                        <p>Para confirmar, combine os detalhes para seu atendimento com o profissional.</p>
-                    </div>
-                    <div class="chat-body" id="chatBody">
-                        <h3></h3>
-                    </div>
-                    <div class="chat-footer">
-                        <textarea id="messageInput" placeholder="Digite sua mensagem..."></textarea>
-                        <button id="sendMessage">Enviar</button>
-                    </div>
-                </div> -->
-
-                <!-- <h2>Agenda de Consultas</h2>
-                <form id="consultaForm">
-                    <label for="dataConsulta">Selecione a Data da Consulta:</label>
-                    <input type="text" id="dataConsulta" name="dataConsulta" readonly required>
-
-                    <label for="horarioConsulta">Horário da Consulta:</label>
-                    <input type="time" id="horarioConsulta" name="horarioConsulta" required>
-
-                    <button type="submit">Marcar Consulta</button>
-
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout_clients' %}">Logout</a></li>
-                    {% endif %}
-                </form> -->
             </div>
         </section>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
     </div>
 
     <!-- Footer Area -->

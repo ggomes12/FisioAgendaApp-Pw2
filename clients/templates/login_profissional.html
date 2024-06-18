@@ -117,10 +117,9 @@
 
     <div class="container">
         <form method="post">
-            {% for message in messages %}
+            <!-- {% for message in messages %}
             <div>{{ message }}</div>
-            {% endfor %}
-    
+            {% endfor %} -->
             {% csrf_token %}
             {{ form.non_field_errors }}
             <p class="fieldWrapper">
@@ -137,12 +136,17 @@
             </p>
             <div class="buttons-wrap">
                 <button type="submit" class="btn-login">Entrar</button>
-                <!-- <a class="btn-proffesional" href="{% url 'login_prof' %}">Entre como profissional</a>
-                <a class="btn-register" href="{% url 'registration_client' %}">Cadastrar</a> -->
                 <div class="btn-forgot">
                     <a href="{% url 'esqueceu_senha' %}">Esqueceu sua senha?</a>
                 </div>
             </div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </form>
     
     </div>

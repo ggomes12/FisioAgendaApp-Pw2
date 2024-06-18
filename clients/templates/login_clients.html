@@ -117,11 +117,7 @@
 
     
     <div class="container">
-        <form method="post">
-            {% for message in messages %}
-            <div>{{ message }}</div>
-            {% endfor %}
-            
+        <form method="post">          
             {% csrf_token %}
             {{ form.non_field_errors }}
             <p class="fieldWrapper">
@@ -144,6 +140,13 @@
                     <a href="{% url 'esqueceu_senha' %}">Esqueceu sua senha?</a>
                 </div>
             </div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </form>
 
     </div>

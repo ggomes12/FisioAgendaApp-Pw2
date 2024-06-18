@@ -1,0 +1,120 @@
+/* Reset básico para remover margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para a seção de informações do cliente e profissional */
+.clients_info,
+.profissional_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.clients_info .column,
+.profissional_info .column {
+    width: 100%;
+}
+
+.clients_info h2,
+.profissional_info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.clients_info table,
+.profissional_info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clients_info table th,
+.profissional_info table th,
+.clients_info table td,
+.profissional_info table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Estilos para a agenda de consultas */
+.agenda_consultas {
+    margin-top: 30px;
+}
+
+.agenda_consultas h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.agenda_consultas table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.agenda_consultas table th,
+.agenda_consultas table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* 
+.legenda-vermelha {
+    color: red;
+    margin-right: 10px;
+}
+
+.legenda-verde {
+    color: green;
+} */
+
+/* Estilos para os botões  */
+/* table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+} */
+
+.btn-concluir {
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.btn-concluir.verde {
+    background-color: green;
+    color: white;
+}
+
+.btn-concluir.vermelho {
+    background-color: red;
+    color: white;
+}
+
+.btn-concluir[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.legenda-vermelha {
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    margin-right: 10px;
+}
+
+.legenda-verde {
+    background-color: green;
+    color: white;
+    padding: 4px 8px;
+}

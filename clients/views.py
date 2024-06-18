@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
 from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm
 from clients.models import Cliente, Profissional, Consulta
@@ -124,7 +124,28 @@ def news_blog(request):
 
 @login_required
 def profile_prof(request):
-    return render(request, 'profile_profissional.html')
+    profissional = request.user.profissional
+    consultas = Consulta.objects.filter(profissional=profissional)
+
+    return render(request, 'profile_profissional.html', {
+        'profissional': profissional,
+        'consultas': consultas,
+    })
+
+
+@login_required
+def marcar_concluido(request, consulta_id):
+    consulta = get_object_or_404(Consulta, id=consulta_id)
+    if consulta.profissional.user == request.user:
+        consulta.status = 'concluido'
+        consulta.save()
+        messages.success(request, 'Consulta marcada como concluída.')
+    else:
+        messages.error(
+            request, 'Você não tem permissão para concluir esta consulta.')
+
+    return redirect('profile_prof')
+
 
 
 @login_required
