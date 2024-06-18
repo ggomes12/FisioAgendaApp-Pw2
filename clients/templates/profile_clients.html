@@ -3,7 +3,7 @@
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/profile_client.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_clients.css' %}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
@@ -130,7 +130,7 @@
     <div class="container">
         <header>
             <div class="photo-frame">
-                <img src="{% static 'img/teste.jpeg' %}" alt="foto">
+                <img src="{% static 'img/perfil1.png' %}" alt="foto">
             </div>
             <h1>Olá! Seja bem-vindo(a)!</h1>
         </header>
@@ -230,6 +230,9 @@
                     </div>
                 </div>
             </div>
+            <div class="voltar">
+            <a class="btn-voltar" href="{% url 'login_clients' %}">Voltar</a>
+        </div>
         </section>
         {% if messages %}
             <ul class="messages">

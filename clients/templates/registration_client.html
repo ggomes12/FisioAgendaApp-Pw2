@@ -21,8 +21,7 @@
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
     <!-- Nice Select CSS -->
     <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
     <!-- Font Awesome CSS -->
@@ -44,6 +43,9 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
 </head>
 
@@ -173,10 +175,12 @@
         <div class="registra-se">
             <a href="{% url 'registration_prof' %}">Registra-se como profissional</a>
         </div>
-    
-        <div class="voltar_inicial">
-            <!-- <a href="index.html">Voltar para a pagina inicial</a> -->
+
+         <div class="voltar">
+            <a class="btn-voltar" href="{% url 'login_clients' %}">Voltar</a>
         </div>
+    
+        
     
     </div>
 
