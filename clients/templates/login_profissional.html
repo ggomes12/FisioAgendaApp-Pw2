@@ -21,8 +21,7 @@
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
     <!-- Nice Select CSS -->
     <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
     <!-- Font Awesome CSS -->
@@ -44,6 +43,9 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
 </head>
 
@@ -117,10 +119,9 @@
 
     <div class="container">
         <form method="post">
-            {% for message in messages %}
+            <!-- {% for message in messages %}
             <div>{{ message }}</div>
-            {% endfor %}
-    
+            {% endfor %} -->
             {% csrf_token %}
             {{ form.non_field_errors }}
             <p class="fieldWrapper">
@@ -137,12 +138,18 @@
             </p>
             <div class="buttons-wrap">
                 <button type="submit" class="btn-login">Entrar</button>
-                <!-- <a class="btn-proffesional" href="{% url 'login_prof' %}">Entre como profissional</a>
-                <a class="btn-register" href="{% url 'registration_client' %}">Cadastrar</a> -->
                 <div class="btn-forgot">
                     <a href="{% url 'esqueceu_senha' %}">Esqueceu sua senha?</a>
                 </div>
+                <a class="btn-voltar" href="{% url 'login_clients' %}">Voltar</a>
             </div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </form>
     
     </div>
