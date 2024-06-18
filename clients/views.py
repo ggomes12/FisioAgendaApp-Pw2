@@ -38,7 +38,7 @@ def registration_profissional(request):
     if request.method == 'POST':
         formProf = ProfissionalForm(request.POST)
         if formProf.is_valid():
-            user= formProf.save()
+            user = formProf.save()
             Profissional.objects.create(
                 user=user,
                 telefone=formProf.cleaned_data['telefone'],

@@ -19,7 +19,7 @@ urlpatterns = [
      path('registration_client/', views.registration_client,
           name='registration_client'),
      path('contact-nos', views.contact, name='contact-nos'),
-    path('marcar_consulta/<str:nome_fisio>/<str:especialidade>/',
+     path('marcar_consulta/<str:nome_fisio>/<str:especialidade>/',
          views.marcar_consulta, name='marcar_consulta'),
      #path('esqueceu_senha/', views.esqueceu_senha, name='esqueceu_senha'),
      path('404/', views.pagina_nao_encontrada, name='pagina_nao_encontrada'),
