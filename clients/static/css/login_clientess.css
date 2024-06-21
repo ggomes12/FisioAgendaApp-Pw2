@@ -41,41 +41,58 @@ input {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-        'login proffesional register'
+        'proffessional register voltar'
         'forgot forgot forgot';
 }
 
-.buttons-wrap>a {
-    text-decoration: none;
-    outline: none;
-    padding: 8px 20px;
-    background-color: #2766aa;
-    color: #fff;
-    border-radius: 8px;
-    font-size: 19px;
-}
 
-.btn-login a {
+
+.btn-login {
     grid-area: login;
 }
 
-.btn-proffesional a {
-    grid-area: proffesional;
+.btn-proffessional{
+    grid-area: proffessional;
+    background-color: rgb(16, 119, 154) !important;
 }
 
-.btn-register a {
+.btn-register {
     grid-area: register;
+    background-color: rgb(16, 119, 154) !important;
 }
 
 .btn-forgot {
-    display: flex;
-    justify-content: center;
     grid-area: forgot;
 }
 
-.btn-forgot a {
-    color: #133b66;
-    text-decoration: none;
-    padding: 5px 10px;
+.btn-voltar {
+    grid-area: voltar;
+    background-color: rgb(16, 119, 154) !important;
+
 }
 
+
+.or-separator {
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.or-separator:before,
+.or-separator:after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: #ccc;
+    width: 40%;
+    position: absolute;
+    top: 50%;
+}
+
+.or-separator:before {
+    left: 0;
+}
+
+.or-separator:after {
+    right: 0;
+}

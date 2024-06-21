@@ -10,11 +10,20 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .decorators import client_required, profissional_required
 from django.views.decorators.cache import never_cache
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 def index(request):
     return render(request, 'index.html')
 
+
+def voltar(request):
+    referer = request.META.get('HTTP_REFERER')
+    if referer:
+        return HttpResponseRedirect(referer)
+    else:
+        return HttpResponseRedirect(reverse('index'))
 
 def registration_client(request):
     if request.method == 'POST':

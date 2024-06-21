@@ -1,0 +1,71 @@
+form {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.input-wrap {
+    width: 100%;
+}
+
+h1 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    /* color: #555; */
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 17px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 30px 15px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'register voltar';
+}
+
+.btn-cadastrar {
+    grid-area: cadastrar;
+}
+
+.btn-register {
+    grid-area: register;
+    background-color: rgb(16, 119, 154) !important;
+}
+
+
+.btn-voltar {
+    grid-area: voltar;
+    background-color: rgb(16, 119, 154) !important;
+
+}
+
+
+
+.mensagem {
+    margin-top: 20px;
+    padding: 10px;
+    color: #000000;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(242, 250, 252);
+}

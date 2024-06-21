@@ -1,17 +1,13 @@
 {% load static %}
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
 
     <head>
         <!-- Meta Tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/login_clients.css' %}">
-        <!-- <meta name="keywords" content="Site keywords here">
-        <meta name="description" content="">
-        <meta name='copyright' content=''> -->
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-        
+        <link rel="stylesheet" href="{% static 'css/login_prof.css' %}">
+       
 
         <!-- Title -->
         <title>Login de profissionais</title>
@@ -136,13 +132,9 @@
                     {{ form.password }}
 
                 </p>
-                <div class="buttons-wrap">
-                    <button type="submit" class="btn-login">Entrar</button>
-                    <div class="btn-forgot">
-                        <a href="{% url 'esqueceu_senha' %}">Esqueceu sua senha?</a>
-                    </div>
-                    <a class="btn-voltar" href="{% url 'login_clients' %}">Voltar</a>
-                </div>
+
+                <button type="submit" class="btn btn-login">Entrar</button>
+                
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
@@ -150,7 +142,19 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
+
+
             </form>
+
+            <p class="or-separator">OR</p>
+
+            <div class="buttons-wrap">
+                <!-- Link para esqueceu sua senha -->
+                <a href="{% url 'esqueceu_senha' %}" class="btn btn-forgot">Esqueceu sua senha?</a>
+
+                <!-- Link para voltar -->
+                <a href="{% url 'login_clients' %}" class="btn btn-voltar">Voltar</a>
+            </div>
         
         </div>
 

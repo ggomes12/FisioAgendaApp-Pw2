@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name='copyright' content=''>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'css/registration_client.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration_clientes.css' %}">
     <script defer src="{% static 'js/registration_client.js' %}"></script>
 
     <!-- Title -->
@@ -76,9 +76,6 @@
                     <div class="col-lg-6 col-md-5 col-12">
                         <!-- Contact -->
                         <ul class="top-link">
-                            <!-- <li><a href="#">Sobre nos</a></li> -->
-                            <!-- <li><a href="#">Doctors</a></li> -->
-                            <!-- <li><a href="#">Contatos</a></li> -->
                             <li><a href="#">FAQ</a></li>
                         </ul>
                         <!-- End Contact -->
@@ -120,19 +117,6 @@
                                                 <li><a href="{% url 'index' %}">Pagina inicial</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li><a href="#">Sobre nos </a></li>
-                                        <li><a href="#">Contatos </a></li>
-                                        <li><a href="#">Paginas <i class="icofont-rounded-down"></i></a> -->
-                                        <!-- <ul class="dropdown">
-                                                <li><a href="404.html">colocar algo</a></li>
-                                            </ul> -->
-                                        </li>
-                                        <!-- <li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
-																			<ul class="dropdown">
-																				<li><a href="blog-single.html">Blog Details</a></li>
-																			</ul>
-																		</li> -->
-                                        <!-- <li><a href="contact.html">Contact Us</a></li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -146,46 +130,44 @@
     </header>
     <!-- End Header Area -->
 
-    <div class="container">
-        <h1>Cadastro de Cliente</h1>
+        <div class="container">
+            <h1>Cadastro de Cliente</h1>
 
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                {% endfor %}
-        </ul>
-        {% endif %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
 
-        
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Cadastrar</button>
-<!-- 
-            <div class="botao">
-                <button type="submit">Cadastrar</button>
-                <p class="msg"></p>
-            </div> -->
-        </form>
+            
+            <form method="post" action="{% url 'registration_client' %}">    
+                {% csrf_token %}
+                {{ form.as_p }}
 
-        <div class="mensagem">
-            <p>Deseja registrar-se como profissional? Clique no botao abaixo</p>
+                <button type="submit" class="btn btn-cadastrar">Cadastrar </button>
+
+                
+            </form>
+            <div class="mensagem">
+                <p>Deseja registrar-se como profissional? Clique no botao abaixo</p>
+            </div>
+            <div class="buttons-wrap">            
+                <!-- Link para voltar -->
+                <a href="{% url 'login_clients' %}" class="btn btn-voltar">Voltar</a>
+                <!-- <button class="btn btn-voltar" href="{% url 'login_clients' %}">Voltar</button> -->
+
+                <!-- Link para cadastro -->
+                <a href="{% url 'registration_prof' %}" class="btn btn-register">Cadastrar como Profissional</a>
+
+            </div>
+
         </div>
-        <div class="registra-se">
-            <a href="{% url 'registration_prof' %}">Registra-se como profissional</a>
-        </div>
-
-         <div class="voltar">
-            <a class="btn-voltar" href="{% url 'login_clients' %}">Voltar</a>
-        </div>
-    
-        
-    
-    </div>
 
 
-    <!-- Footer Area -->
+
+        <!-- Footer Area -->
 		<footer id="footer" class="footer ">
 			<!-- Footer Top -->
 			<div class="footer-top">
@@ -244,46 +226,46 @@
 		</footer>
 		<!--/ End Footer Area -->
 
-    <!-- jquery Min JS -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <!-- jquery Migrate JS -->
-    <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
-    <!-- jquery Ui JS -->
-    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
-    <!-- Easing JS -->
-    <script src="{% static 'js/easing.js' %}"></script>
-    <!-- Color JS -->
-    <script src="{% static 'js/colors.js' %}"></script>
-    <!-- Popper JS -->
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <!-- Bootstrap Datepicker JS -->
-    <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-    <!-- Jquery Nav JS -->
-    <script src="{% static 'js/jquery.nav.js' %}"></script>
-    <!-- Slicknav JS -->
-    <script src="{% static 'js/slicknav.min.js' %}"></script>
-    <!-- ScrollUp JS -->
-    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-    <!-- Niceselect JS -->
-    <script src="{% static 'js/niceselect.js' %}"></script>
-    <!-- Tilt Jquery JS -->
-    <script src="{% static 'js/tilt.jquery.min.js' %}"></script>
-    <!-- Owl Carousel JS -->
-    <script src="{% static 'js/owl-carousel.js' %}"></script>
-    <!-- counterup JS -->
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <!-- Steller JS -->
-    <script src="{% static 'js/steller.js' %}"></script>
-    <!-- Wow JS -->
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <!-- Magnific Popup JS -->
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <!-- Counter Up CDN JS -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- Main JS -->
-    <script src="{% static 'js/main.js' %}"></script>
-</body>
+        <!-- jquery Min JS -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <!-- jquery Migrate JS -->
+        <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
+        <!-- jquery Ui JS -->
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+        <!-- Easing JS -->
+        <script src="{% static 'js/easing.js' %}"></script>
+        <!-- Color JS -->
+        <script src="{% static 'js/colors.js' %}"></script>
+        <!-- Popper JS -->
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <!-- Bootstrap Datepicker JS -->
+        <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+        <!-- Jquery Nav JS -->
+        <script src="{% static 'js/jquery.nav.js' %}"></script>
+        <!-- Slicknav JS -->
+        <script src="{% static 'js/slicknav.min.js' %}"></script>
+        <!-- ScrollUp JS -->
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+        <!-- Niceselect JS -->
+        <script src="{% static 'js/niceselect.js' %}"></script>
+        <!-- Tilt Jquery JS -->
+        <script src="{% static 'js/tilt.jquery.min.js' %}"></script>
+        <!-- Owl Carousel JS -->
+        <script src="{% static 'js/owl-carousel.js' %}"></script>
+        <!-- counterup JS -->
+        <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+        <!-- Steller JS -->
+        <script src="{% static 'js/steller.js' %}"></script>
+        <!-- Wow JS -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <!-- Magnific Popup JS -->
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <!-- Counter Up CDN JS -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- Main JS -->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
 
 </html>

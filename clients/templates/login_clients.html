@@ -1,16 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="zxx">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/login_clients.css' %}">
-        <!-- <link rel="stylesheet" href="{% static 'css/modal.css' %}"> -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="{% static 'js/modal.js' %}"></script> -->
+        <link rel="stylesheet" href="{% static 'css/login_clientess.css' %}">
+
 
         <title>Login clientes</title>
 
@@ -60,8 +56,6 @@
                         <div class="col-lg-6 col-md-5 col-12">
                             <!-- Contact -->
                             <ul class="top-link">
-                                <!-- <li><a href="#">Sobre nos</a></li> -->
-                                <!-- <li><a href="#">Contatos</a></li> -->
                                 <li><a href="#">FAQ</a></li>
                             </ul>
                             <!-- End Contact -->
@@ -119,7 +113,7 @@
 
         
         <div class="container">
-            <form method="post">          
+            <form method="post" action="{% url 'login_clients' %}">          
                 {% csrf_token %}
                 {{ form.non_field_errors }}
                 <p class="fieldWrapper">
@@ -134,15 +128,7 @@
                     {{ form.password }}
 
                 </p>
-                <div class="buttons-wrap">
-                    <button type="submit" class="btn-login">Entrar</button>
-                    <a class="btn-proffesional" href="{% url 'login_prof' %}">Entre como profissional</a>
-                    <a class="btn-register" href="{% url 'registration_client' %}">Cadastrar</a>
-                    <div class="btn-forgot">
-                        <a href="{% url 'esqueceu_senha' %}">Esqueceu sua senha?</a>
-                    </div>
-                    <a class="btn-voltar" href="{% url 'index' %}">Voltar</a>
-                </div>
+                
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
@@ -150,7 +136,29 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
+
+                <button type="submit" class="btn btn-login">Entrar</button>
             </form>
+            
+            <p class="or-separator">OR</p>
+            
+            <div class="buttons-wrap">
+                <!-- Botão de Entrar -->
+                <!-- <a href="{% url 'login_clients' %}" class="btn btn-login">Entrar</a> -->
+                
+                <!-- Link para login como profissional -->
+                <a href="{% url 'login_prof' %}" class="btn btn-proffessional">Entre como profissional</a>
+                
+                <!-- Link para cadastro -->
+                <a href="{% url 'registration_client' %}" class="btn btn-register">Cadastrar</a>
+
+                <!-- Link para voltar -->
+                <a href="{% url 'index' %}" class="btn btn-voltar">Voltar</a>
+
+                <!-- Link para esqueceu sua senha -->
+                <a href="{% url 'esqueceu_senha' %}" class="btn btn-forgot">Esqueceu sua senha?</a>
+            </div>                        
+                
 
         </div>
 
