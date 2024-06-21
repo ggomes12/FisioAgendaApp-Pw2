@@ -83,3 +83,24 @@ header h1 {
 section h2 {
     text-align: center;
 }
+
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 30px 15px 30px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'logout voltar';
+}
+
+.btn-logout {
+    grid-area: logout;
+}
+
+
+.btn-voltar {
+    grid-area: voltar;
+}

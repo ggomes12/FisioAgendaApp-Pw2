@@ -3,7 +3,7 @@
 <html class="no-js" lang="zxx">
   <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="{% static 'css/profile_prof.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/profile_profissional.css' %}" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
         <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -40,278 +40,292 @@
 
     </head>
 
-<body>
+    <body>
 
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="loader-outter"></div>
-            <div class="loader-inner"></div>
-    
-            <div class="indicator">
-                <svg width="16px" height="12px">
-                    <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                    <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                </svg>
-            </div>
-        </div>
-    </div>
-    <!-- End Preloader -->
-
-    <!-- Header Area -->
-    <header class="header">
-        <!-- Topbar -->
-        <div class="topbar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-5 col-12">
-                        <!-- Contact -->
-                        <ul class="top-link">
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                        <!-- End Contact -->
-                    </div>
-                    <div class="col-lg-6 col-md-7 col-12">
-                        <!-- Top Contact -->
-                        <ul class="top-contact">
-                            <li><i class="fa fa-phone"></i>89 9 8804-7251</li>
-                            <li><i class="fa fa-envelope"></i><a
-                                    href="mailto:supportFisioA@gmail.com">supportFisioA@gmail.com</a>
-                            </li>
-                        </ul>
-                        <!-- End Top Contact -->
-                    </div>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+        
+                <div class="indicator">
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
                 </div>
             </div>
         </div>
-        <!-- End Topbar -->
-        <!-- Header Inner -->
-        <div class="header-inner">
-            <div class="container">
-                <div class="inner">
+        <!-- End Preloader -->
+
+        <!-- Header Area -->
+        <header class="header">
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <!-- Start Logo -->
-                            <div class="logo">
-                                <!-- <a href="index.html"><img src="img/logoo.png" alt="#"></a> -->
-                            </div>
-                            <!-- End Logo -->
-                            <!-- Mobile Nav -->
-                            <div class="mobile-nav"></div>
-                            <!-- End Mobile Nav -->
+                        <div class="col-lg-6 col-md-5 col-12">
+                            <!-- Contact -->
+                            <ul class="top-link">
+                                <li><a href="#">FAQ</a></li>
+                            </ul>
+                            <!-- End Contact -->
                         </div>
-                        <div class="col-lg-7 col-md-9 col-12">
-                            <!-- Main Menu -->
-                            <div class="main-menu">
-                                <nav class="navigation">
-                                    <ul class="nav menu">
-                                        <li class="active"><a href="#">Inicio <i class="icofont-rounded-down"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="{% url 'index' %}">Pagina inicial</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <!--/ End Main Menu -->
+                        <div class="col-lg-6 col-md-7 col-12">
+                            <!-- Top Contact -->
+                            <ul class="top-contact">
+                                <li><i class="fa fa-phone"></i>89 9 8804-7251</li>
+                                <li><i class="fa fa-envelope"></i><a
+                                        href="mailto:supportFisioA@gmail.com">supportFisioA@gmail.com</a>
+                                </li>
+                            </ul>
+                            <!-- End Top Contact -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--/ End Header Inner -->
-    </header>
-    <!-- End Header Area -->
-<body>
-    <div class="container">
-        <header>
-            <div class="photo-frame">
-                <img src="{% static 'img/perfilProf.png' %}" alt="foto">
+            <!-- End Topbar -->
+            <!-- Header Inner -->
+            <div class="header-inner">
+                <div class="container">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-12">
+                                <!-- Start Logo -->
+                                <div class="logo">
+                                    <!-- <a href="index.html"><img src="img/logoo.png" alt="#"></a> -->
+                                </div>
+                                <!-- End Logo -->
+                                <!-- Mobile Nav -->
+                                <div class="mobile-nav"></div>
+                                <!-- End Mobile Nav -->
+                            </div>
+                            <div class="col-lg-7 col-md-9 col-12">
+                                <!-- Main Menu -->
+                                <div class="main-menu">
+                                    <nav class="navigation">
+                                        <ul class="nav menu">
+                                            <li class="active"><a href="#">Inicio <i class="icofont-rounded-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li><a href="{% url 'index' %}">Pagina inicial</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!--/ End Main Menu -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>Olá! Seja bem-vindo(a)!</h1>
+            <!--/ End Header Inner -->
         </header>
+        <!-- End Header Area -->
 
-        <section class="clients_info">
-            <div class="column">
-                <h2>Informações Pessoais</h2>
-                <table>
-                    <tr>
-                        <th>Nome Completo:</th>
-                        <td>{{ user.username }}</td>
-                    </tr>
-                    <tr>
-                        <th>CREFITO:</th>
-                        <td>{{ user.profissional.crefito }}</td>
-                    </tr>
-                    <tr>
-                        <th>Email:</th>
-                        <td>{{ user.email }}</td>
-                    </tr>
-                    <tr>
-                        <th>Especialidade:</th>
-                        <td>{{ user.profissional.especialidade }}</td>
-                    </tr>
-                    <tr>
-                        <th>Endereço:</th>
-                        <td>{{ user.profissional.endereco }}</td>
-                    </tr>
-                    <tr>
-                        <th>Telefone:</th>
-                        <td>{{ user.profissional.telefone }}</td>
-                    </tr>
-                </table>
-                <a href="{% url 'update_professional_profile' %}" class="btn btn-primary">Editar Perfil</a>
-            </div>
-            {% if user.is_authenticated %}
+        <div class="container">
+            <header>
+                <div class="photo-frame">
+                    <img src="{% static 'img/perfilProf.png' %}" alt="foto">
+                </div>
+                <h1>Olá! Seja bem-vindo(a)!</h1>
+            </header>
+
+            <section class="profissional_info">
+                <div class="column">
+                    <h2>Informações Pessoais</h2>
+                    <table>
+                        <tr>
+                            <th>Nome Completo:</th>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <th>CREFITO:</th>
+                            <td>{{ user.profissional.crefito }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Especialidade:</th>
+                            <td>{{ user.profissional.especialidade }}</td>
+                        </tr>
+                        <tr>
+                            <th>Endereço:</th>
+                            <td>{{ user.profissional.endereco }}</td>
+                        </tr>
+                        <tr>
+                            <th>Telefone:</th>
+                            <td>{{ user.profissional.telefone }}</td>
+                        </tr>
+                    </table>
+                    <a href="{% url 'update_professional_profile' %}" class="btn btn-primary">Editar Perfil</a>
+                </div>
+                {% if user.is_authenticated %}
+                
+                {% endif %}
             
-            {% endif %}
-        </section>
 
-        <section class="agenda_consultas">
-            <h2>Agenda de Consultas</h2>
-            <div class="marcadores">
-                <span class="legenda-vermelha">em aberto</span>
-                <span class="legenda-verde">concluido</span>
+                <div class="agenda_consultas">
+                    <div class="column">
+                        <h2>Agenda de Consultas</h2>
+                        <div class="marcadores">
+                            <span class="legenda-vermelha">em aberto</span>
+                            <span class="legenda-verde">concluido</span>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Horário</th>
+                                    <th>Status</th>
+                                    <!-- <th>Ações</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for consulta in consultas %}
+                                <tr>
+                                    <td>{{ consulta.data }}</td>
+                                    <td>{{ consulta.horario }}</td>
+                                    <!-- <td>{{ consulta.status }}</td> -->
+                                    <td>
+                                        <form action="{% url 'marcar_concluido' consulta.id %}" method="post" class="form-concluir" data-consulta-id="{{ consulta.id }}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="status" value="concluido">
+                                            <button type="submit" class="btn-concluir {% if consulta.status == 'concluido' %}verde{% else %}vermelho{% endif %}">
+                                                {% if consulta.status == 'concluido' %}Concluido{% else %}Concluir{% endif %}
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <div class="buttons-wrap">            
+                    <!-- Link para logout -->
+                    <a href="{% url 'logout_prof' %}" class="btn btn-logout">Logout</a>
+
+                    <!-- Link para voltar -->
+                    <a href="{% url 'login_prof' %}" class="btn btn-voltar">Voltar</a>
+                </div>
+            </section>
+        </div>
+
+        
+
+        <!-- Footer Area -->
+        <footer id="footer" class="footer ">
+            <!-- Footer Top -->
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="single-footer">
+                                <h2>Nossas redes sociais</h2>
+                                <!-- Social -->
+                                <ul class="social">
+                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                </ul>
+                                <!-- End Social -->
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="single-footer f-link">
+                                <h2>Outros links</h2>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
+                                            <li><a href="#sobre-nos"><i class="fa fa-caret-right" aria-hidden="true"></i>Sobre nós</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Serviços</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="single-footer">
+                                <h2>Novidades</h2>
+                                <p>Esteja entre os primeiros a saber sobre nossos tratamentos inovadores, eventos especiais e ofertas imperdíveis.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Horário</th>
-                        <th>Status</th>
-                        <!-- <th>Ações</th> -->
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for consulta in consultas %}
-                    <tr>
-                        <td>{{ consulta.data }}</td>
-                        <td>{{ consulta.horario }}</td>
-                        <!-- <td>{{ consulta.status }}</td> -->
-                        <td>
-                            <form action="{% url 'marcar_concluido' consulta.id %}" method="post" class="form-concluir" data-consulta-id="{{ consulta.id }}">
-                                {% csrf_token %}
-                                <input type="hidden" name="status" value="concluido">
-                                <button type="submit" class="btn-concluir {% if consulta.status == 'concluido' %}verde{% else %}vermelho{% endif %}">
-                                    {% if consulta.status == 'concluido' %}Concluido{% else %}Concluir{% endif %}
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <li><a href="{% url 'logout_prof' %}">Logout</a></li>
-        </section>
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li class="{{ message.tags }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-    </div>
+            <!--/ End Footer Top -->
+            <!-- Copyright -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="copyright-content">
+                                <p>© Copyright 2024  |  Juá - Soluções em Tecnologia </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Copyright -->
+        </footer>
+        <!--/ End Footer Area -->
 
-    <!-- Footer Area -->
-		<footer id="footer" class="footer ">
-			<!-- Footer Top -->
-			<div class="footer-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								 <h2>Nossas redes sociais</h2>
-								<!-- Social -->
-								<ul class="social">
-									<li><a href="#"><i class="icofont-instagram"></i></a></li>
-									<li><a href="#"><i class="icofont-linkedin"></i></a></li>
-								</ul>
-								<!-- End Social -->
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer f-link">
-								<h2>Outros links</h2>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Início</a></li>
-											<li><a href="#sobre-nos"><i class="fa fa-caret-right" aria-hidden="true"></i>Sobre nós</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Serviços</a></li>
+        <!-- jquery Min JS -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <!-- jquery Migrate JS -->
+        <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
+        <!-- jquery Ui JS -->
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+        <!-- Easing JS -->
+        <script src="{% static 'js/easing.js' %}"></script>
+        <!-- Color JS -->
+        <script src="{% static 'js/colors.js' %}"></script>
+        <!-- Popper JS -->
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <!-- Bootstrap Datepicker JS -->
+        <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+        <!-- Jquery Nav JS -->
+        <script src="{% static 'js/jquery.nav.js' %}"></script>
+        <!-- Slicknav JS -->
+        <script src="{% static 'js/slicknav.min.js' %}"></script>
+        <!-- ScrollUp JS -->
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+        <!-- Niceselect JS -->
+        <script src="{% static 'js/niceselect.js' %}"></script>
+        <!-- Tilt Jquery JS -->
+        <script src="{% static 'js/tilt.jquery.min.js' %}"></script>
+        <!-- Owl Carousel JS -->
+        <script src="{% static 'js/owl-carousel.js' %}"></script>
+        <!-- counterup JS -->
+        <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+        <!-- Steller JS -->
+        <script src="{% static 'js/steller.js' %}"></script>
+        <!-- Wow JS -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <!-- Magnific Popup JS -->
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <!-- Counter Up CDN JS -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- Main JS -->
+        <script src="{% static 'js/main.js' %}"></script>
 
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>Novidades</h2>
-								<p>Esteja entre os primeiros a saber sobre nossos tratamentos inovadores, eventos especiais e ofertas imperdíveis.</p>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Footer Top -->
-			<!-- Copyright -->
-			<div class="copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-12">
-							<div class="copyright-content">
-								<p>© Copyright 2024  |  Juá - Soluções em Tecnologia </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Copyright -->
-		</footer>
-		<!--/ End Footer Area -->
-
-    <!-- jquery Min JS -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <!-- jquery Migrate JS -->
-    <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
-    <!-- jquery Ui JS -->
-    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
-    <!-- Easing JS -->
-    <script src="{% static 'js/easing.js' %}"></script>
-    <!-- Color JS -->
-    <script src="{% static 'js/colors.js' %}"></script>
-    <!-- Popper JS -->
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <!-- Bootstrap Datepicker JS -->
-    <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
-    <!-- Jquery Nav JS -->
-    <script src="{% static 'js/jquery.nav.js' %}"></script>
-    <!-- Slicknav JS -->
-    <script src="{% static 'js/slicknav.min.js' %}"></script>
-    <!-- ScrollUp JS -->
-    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-    <!-- Niceselect JS -->
-    <script src="{% static 'js/niceselect.js' %}"></script>
-    <!-- Tilt Jquery JS -->
-    <script src="{% static 'js/tilt.jquery.min.js' %}"></script>
-    <!-- Owl Carousel JS -->
-    <script src="{% static 'js/owl-carousel.js' %}"></script>
-    <!-- counterup JS -->
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <!-- Steller JS -->
-    <script src="{% static 'js/steller.js' %}"></script>
-    <!-- Wow JS -->
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <!-- Magnific Popup JS -->
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <!-- Counter Up CDN JS -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- Main JS -->
-    <script src="{% static 'js/main.js' %}"></script>
-
-</body>
+    </body>
 
 </html>
