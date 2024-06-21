@@ -8,6 +8,8 @@ from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfi
 from clients.models import Cliente, Profissional, Consulta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .decorators import client_required, profissional_required
+from django.views.decorators.cache import never_cache
 
 
 def index(request):
@@ -123,6 +125,8 @@ def news_blog(request):
 
 
 @login_required
+@profissional_required
+@never_cache
 def profile_prof(request):
     profissional = request.user.profissional
     consultas = Consulta.objects.filter(profissional=profissional)
@@ -149,6 +153,8 @@ def marcar_concluido(request, consulta_id):
 
 
 @login_required
+@client_required
+@never_cache
 def profile_client(request):
     # Obtém os parâmetros de busca da URL
     txt_nome = request.GET.get('nome')
@@ -165,7 +171,7 @@ def profile_client(request):
     clients_profissional_list = clients_profissional_list.order_by('user__username')
 
     # Configura a paginação
-    paginator = Paginator(clients_profissional_list, 10)  # 1 profissional por página (ajuste conforme necessário)
+    paginator = Paginator(clients_profissional_list, 10)  # 10 profissional por página
 
     page = request.GET.get('page')
     try:
