@@ -6,16 +6,16 @@ from django.conf import settings
 
 
 urlpatterns = [
-     path('login_clients/', views.login_clients, name='login_clients'),
-     path('login_profissional/', views.login_profissional,
+     path('client/login_clients/', views.login_clients, name='login_clients'),
+     path('professional/login_profissional/', views.login_profissional,
          name='login_prof'),
      path('voltar/', views.voltar, name='voltar'),
      path('logout_clients/', views.logout_clients, name='logout_clients'),
      path('logout_prof/', views.logout_prof, name='logout_prof'),
      path('profissionais_lista/', views.profissionais_lista,
           name='profissionais_lista'),
-     path('profile_prof/', views.profile_prof, name='profile_prof'),
-     path('profile_clients/', views.profile_client, name='profile_clients'),
+     path('professional/profile_prof/', views.profile_prof, name='profile_prof'),
+     path('client/profile_clients/', views.profile_client, name='profile_clients'),
      path('registration_profissional/', views.registration_profissional,
           name='registration_prof'),
      path('registration_client/', views.registration_client,
@@ -35,6 +35,6 @@ urlpatterns = [
      path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
      path('password_reset_confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
      path('password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
-     path('update_profile/', views.update_profile, name='update_profile'),
-     path('update_professional_profile/', views.update_professional_profile, name='update_professional_profile'),
+     path('client/update_profile/', views.update_profile, name='update_profile'),
+     path('professional/update_profile/', views.update_professional_profile, name='update_professional_profile'),
 ] 

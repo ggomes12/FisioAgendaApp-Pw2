@@ -126,9 +126,13 @@
         <div class="container">
             <header>
                 <div class="photo-frame">
-                    <img src="{% static 'img/perfilProf.png' %}" alt="foto">
+                    {% if user.cliente.image %}
+                        <img src="{{ user.profissional.image.url }}" alt="Foto de Perfil">
+                    {% else %}
+                        <img src="{% static 'img/profile_padrao.png' %}" alt="Foto de Perfil">
+                    {% endif %}
                 </div>
-                <h1>Olá! Seja bem-vindo(a)!</h1>
+                <h1>Olá, {{ user.username }}!</h1>
             </header>
 
             <section class="profissional_info">
@@ -161,6 +165,7 @@
                         </tr>
                     </table>
                     <a href="{% url 'update_professional_profile' %}" class="btn btn-primary">Editar Perfil</a>
+                    <a href="{% url 'password_change' %}" class="btn btn-primary">Trocar Senha</a>
                 </div>
                 {% if user.is_authenticated %}
                 

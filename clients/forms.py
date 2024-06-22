@@ -92,23 +92,49 @@ class ProfessionalProfileForm(forms.ModelForm):
     telefone = forms.CharField(max_length=15, required=False)
     endereco = forms.CharField(max_length=255, required=False)
     especialidade = forms.CharField(max_length=100, required=False)
+    crefito = forms.CharField(max_length=20, required=False)
+    image = forms.ImageField(required=False)
     
     class Meta:
         model = User
         fields = ['username', 'email']
-    
+        
     def __init__(self, *args, **kwargs):
         super(ProfessionalProfileForm, self).__init__(*args, **kwargs)
-        self.fields['telefone'].initial = self.instance.profissional.telefone
-        self.fields['endereco'].initial = self.instance.profissional.endereco
-        self.fields['especialidade'].initial = self.instance.profissional.especialidade
+        
+        if self.instance.pk:
+            try:
+                profissional = self.instance.profissional
+                self.fields['telefone'].initial = profissional.telefone
+                self.fields['endereco'].initial = profissional.endereco
+                self.fields['especialidade'].initial = profissional.especialidade
+                self.fields['crefito'].initial = profissional.crefito
+            except Profissional.DoesNotExist:
+                pass
 
     def save(self, commit=True):
         user = super(ProfessionalProfileForm, self).save(commit=False)
-        user.profissional.telefone = self.cleaned_data['telefone']
-        user.profissional.endereco = self.cleaned_data['endereco']
-        user.profissional.especialidade = self.cleaned_data['especialidade']
+
+        if self.cleaned_data['telefone'] and self.cleaned_data['endereco']:
+            try:
+                profissional = user.profissional if hasattr(user, 'profissional') else Profissional(user=user)
+                profissional.telefone = self.cleaned_data['telefone']
+                profissional.endereco = self.cleaned_data['endereco']
+                profissional.especialidade = self.cleaned_data['especialidade']
+                profissional.crefito = self.cleaned_data['crefito']
+                profissional.save()
+            except Profissional.DoesNotExist:
+                pass
+
+        if self.cleaned_data['image']:
+            try:
+                profissional = user.profissional if hasattr(user, 'profissional') else Profissional(user=user)
+                profissional.image = self.cleaned_data['image']
+                profissional.save()
+            except Profissional.DoesNotExist:
+                pass
+
         if commit:
             user.save()
-            user.profissional.save()
         return user
+    

@@ -8,6 +8,11 @@ def user_directory_path(instance, filename):
     return f'uploads/usuario_{instance.user.id}/perfil/{filename}'
 
 
+def prof_directory_path(instance, filename):
+    # Armazena o arquivo no diretório 'uploads/usuario_<id>/perfil/<filename>'
+    return f'uploads/usuario_{instance.user.id}/perfil/{filename}'
+
+
 class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     telefone = models.CharField(max_length=15)
@@ -27,6 +32,8 @@ class Profissional(models.Model):
     # cpf = models.CharField(max_length=14, null=True, default=None)
     crefito = models.CharField(max_length=20, blank=True, null=True)
     especialidade = models.CharField(max_length=255, blank=True, null=True)
+    image = models.ImageField(
+        upload_to=prof_directory_path, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
