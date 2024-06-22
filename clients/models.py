@@ -3,11 +3,18 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+def user_directory_path(instance, filename):
+    # Armazena o arquivo no diretório 'uploads/usuario_<id>/perfil/<filename>'
+    return f'uploads/usuario_{instance.user.id}/perfil/{filename}'
+
+
 class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     telefone = models.CharField(max_length=15)
     endereco = models.CharField(max_length=255)
     cpf = models.CharField(max_length=14, null=True, default=None)
+    image = models.ImageField(
+        upload_to=user_directory_path, null=True, blank=True)
 
     def __str__(self):
         return self.user.username

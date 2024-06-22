@@ -237,17 +237,25 @@ def marcar_consulta(request, nome_fisio, especialidade):
 
     return render(request, 'agendamento_consult.html', {'form': form, 'profissional': profissional})
 
+
 @login_required
 def update_profile(request):
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=request.user)
+        form = UserProfileForm(
+            request.POST, request.FILES, instance=request.user)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            user.save()
+            messages.success(request, 'Perfil atualizado com sucesso.')
             return redirect('profile_clients')
+        else:
+            messages.error(
+                request, 'Erro ao atualizar perfil. Verifique os campos informados.')
     else:
         form = UserProfileForm(instance=request.user)
-    
+
     return render(request, 'update_profile.html', {'form': form})
+
 
 @login_required
 def update_professional_profile(request):

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'django_cleanup.apps.CleanupConfig',
+
     #aplicativo do projeto
     'clients',
 ]
@@ -138,6 +139,9 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/uploads/'  # URL base para servir arquivos de mídia
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 

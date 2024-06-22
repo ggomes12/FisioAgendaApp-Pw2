@@ -1,6 +1,7 @@
 from django.urls import path, reverse_lazy
 from django.contrib.auth import views as auth_views
 from clients import views
+from django.conf import settings
 
 
 
@@ -36,4 +37,4 @@ urlpatterns = [
      path('password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
      path('update_profile/', views.update_profile, name='update_profile'),
      path('update_professional_profile/', views.update_professional_profile, name='update_professional_profile'),
-]
+] 

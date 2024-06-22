@@ -13,7 +13,7 @@ urlpatterns = [
     # Inclui as URLs da aplicação clients
     path('clients/', include('clients.urls')),
     #path('clients/', include('django.contrib.auth.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 pag_not_found = "clients.views.pagina_nao_encontrada"
 

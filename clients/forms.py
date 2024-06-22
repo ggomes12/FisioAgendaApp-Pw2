@@ -47,23 +47,44 @@ class ConsultaForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     telefone = forms.CharField(max_length=15, required=False)
     endereco = forms.CharField(max_length=255, required=False)
-    
+    image = forms.ImageField(required=False)
+
     class Meta:
         model = User
         fields = ['username', 'email']
-    
+
     def __init__(self, *args, **kwargs):
         super(UserProfileForm, self).__init__(*args, **kwargs)
-        self.fields['telefone'].initial = self.instance.cliente.telefone
-        self.fields['endereco'].initial = self.instance.cliente.endereco
+        if self.instance.pk:
+            try:
+                cliente = self.instance.cliente
+                self.fields['telefone'].initial = cliente.telefone
+                self.fields['endereco'].initial = cliente.endereco
+            except Cliente.DoesNotExist:
+                pass
 
     def save(self, commit=True):
         user = super(UserProfileForm, self).save(commit=False)
-        user.cliente.telefone = self.cleaned_data['telefone']
-        user.cliente.endereco = self.cleaned_data['endereco']
+        
+        if self.cleaned_data['telefone'] and self.cleaned_data['endereco']:
+            try:
+                cliente = user.cliente if hasattr(user, 'cliente') else Cliente(user=user)
+                cliente.telefone = self.cleaned_data['telefone']
+                cliente.endereco = self.cleaned_data['endereco']
+                cliente.save()
+            except Cliente.DoesNotExist:
+                pass
+
+        if self.cleaned_data['image']:
+            try:
+                cliente = user.cliente if hasattr(user, 'cliente') else Cliente(user=user)
+                cliente.image = self.cleaned_data['image']
+                cliente.save()
+            except Cliente.DoesNotExist:
+                pass
+
         if commit:
             user.save()
-            user.cliente.save()
         return user
     
 

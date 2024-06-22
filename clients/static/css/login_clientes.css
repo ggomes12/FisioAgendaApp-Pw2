@@ -37,7 +37,7 @@ input {
     text-align: center;
     column-gap: 16px;
     row-gap: 30px;
-    margin: 30px 15px;
+    margin: 60px 55px 100px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
@@ -49,25 +49,27 @@ input {
 
 .btn-login {
     grid-area: login;
+    margin-top: 50px;
 }
 
 .btn-proffessional{
     grid-area: proffessional;
-    background-color: rgb(16, 119, 154) !important;
+    background-color: rgb(25, 140, 247) !important;
 }
 
 .btn-register {
     grid-area: register;
-    background-color: rgb(16, 119, 154) !important;
+    background-color: rgb(25, 140, 247) !important;
 }
 
 .btn-forgot {
     grid-area: forgot;
+    background-color: rgb(25, 140, 247) !important;
 }
 
 .btn-voltar {
     grid-area: voltar;
-    background-color: rgb(16, 119, 154) !important;
+    background-color: rgb(25, 140, 247) !important;
 
 }
 
@@ -75,7 +77,7 @@ input {
 .or-separator {
     text-align: center;
     position: relative;
-    margin: 20px 0;
+    margin: 80px 70px;
 }
 
 .or-separator:before,

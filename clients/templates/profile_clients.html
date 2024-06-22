@@ -3,7 +3,7 @@
 <html class="no-js" lang="zxx">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="{% static 'css/profile_clientes.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile_clients.css' %}">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
@@ -126,11 +126,15 @@
         <!-- End Header Area -->
 
         <div class="container">
-            <header>
+             <header>
                 <div class="photo-frame">
-                    <img src="{% static 'img/perfil1.png' %}" alt="foto">
+                    {% if user.cliente.image %}
+                        <img src="{{ user.cliente.image.url }}" alt="Foto de Perfil">
+                    {% else %}
+                        <img src="{% static 'img/perfil-padrao.png' %}" alt="Foto de Perfil">
+                    {% endif %}
                 </div>
-                <h1>Olá! Seja bem-vindo(a)!</h1>
+                <h1>Olá, {{ user.username }}!</h1>
             </header>
 
             <section class="clients_info">
