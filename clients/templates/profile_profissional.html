@@ -126,7 +126,7 @@
         <div class="container">
             <header>
                 <div class="photo-frame">
-                    {% if user.cliente.image %}
+                    {% if user.profissional.image %}
                         <img src="{{ user.profissional.image.url }}" alt="Foto de Perfil">
                     {% else %}
                         <img src="{% static 'img/profile_padrao.png' %}" alt="Foto de Perfil">

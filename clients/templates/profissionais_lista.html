@@ -74,8 +74,6 @@
                     <div class="col-lg-6 col-md-5 col-12">
                         <!-- Contact -->
                         <ul class="top-link">
-                            <!-- <li><a href="#">Sobre nos</a></li> -->
-                            <!-- <li><a href="#">Contatos</a></li> -->
                             <li><a href="#">FAQ</a></li>
                         </ul>
                         <!-- End Contact -->
@@ -113,18 +111,11 @@
                             <div class="main-menu">
                                 <nav class="navigation">
                                     <ul class="nav menu">
-                                        <li class="active"><a href="#">Inicio <i class="icofont-rounded-down"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="{% static 'index.html' %}">Pagina inicial</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- <li><a href="#">Sobre nos </a></li>
-                                        <li><a href="#">Contatos </a></li>
-                                        <li><a href="#">Paginas <i class="icofont-rounded-down"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="404.html">colocar algo</a></li>
-                                            </ul> -->
-                                        </li>
+                                       <li class="active"><a href="#">Inicio <i class="icofont-rounded-down"></i></a>
+												<ul class="dropdown">
+													<li><a href="{% url 'index' %}">Pagina inicial</a></li>
+												</ul>
+										</li>
                                     </ul>
                                 </nav>
                             </div>
@@ -140,71 +131,84 @@
 
 
     <div class="container">
-        <h1>Lista de Profissionais</h1>
-        <div class="professional_table">
+        <br></br>
+        <section class="clients_info">
+                
 
-            <div class="filter">
-                <form>
-                    <div>
-                        <label for="nome">Especialidade:</label>
-                        <input type="text" id="nome" name="nome">
-                    </div>
-                    <button class="filter_btn" type="submit">Filtrar</button>
+            <div class="column">
+                <h2>Lista de Profissionais</h2>
+                <hr>
+                <form action="?" method="GET">
+                    <label for="nome"> Nome:</label>
+                    <input type="text" name="nome" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome do profissional">
+                    <label for="especialidade"> Especialidade:</label>
+                    <input type="text" name="especialidade" id="" value="{{ request.GET.especialidade }}" class="p-1 border" autocomplete="off" placeholder="Especialidade">
+                    
+                    <button type="submit" class="btn btn-login">Buscar</button>
+                
+                    <a href="{% url 'profissionais_lista' %}" class="btn btn-light">Limpar</a>
+                
                 </form>
+                <hr>
+                <div class="table table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Especialidade</th>
+                                <th>CREFITO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for prof in clients_profissional %}
+                            <tr>
+                                <td>{{prof.user.username}}</td>
+                                <td>{{prof.especialidade}}</td>
+                                <td>{{prof.crefito}}</td>
+                                <td> 
+                                    <a href="{% url 'marcar_consulta' prof.user.username prof.especialidade %}" class="btn btn-primary btn-sm"
+                                        title="Agendar consulta">Agendar Consulta</a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5"> Nenhum profissional registrado </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <ul class="pagination justify-content-center">
+                        {% if clients_profissional.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page=1{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">&laquo; Primeira</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ clients_profissional.previous_page_number }}{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">Anterior</a>
+                            </li>
+                        {% endif %}
+                        <li class="page-item">
+                            <span class="page-link">Página {{ clients_profissional.number }} de {{ clients_profissional.paginator.num_pages }}.</span>
+                        </li>
+                        {% if clients_profissional.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ clients_profissional.next_page_number }}{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">Próxima</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ clients_profissional.paginator.num_pages }}{% if request.GET.nome %}&nome={{ request.GET.nome }}{% endif %}{% if request.GET.especialidade %}&especialidade={{ request.GET.especialidade }}{% endif %}">Última &raquo;</a>
+                            </li>
+                            
+                        {% endif %}
+                    </ul>         
+                </div>
             </div>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome:</th>
-                        <th>Especialidade:</th>
-                        <th>CREFITO:</th>
-                        <th>Email:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-
-                        <td>Carla</td>
-                        <td>Fisioterapia aquática</td>
-                        <td>000000</td>
-                        <td>carla.fisio@gmail.com</td>
-
-                    </tr>
-                    <tr>
-                        <td>Maria</td>
-                        <td>Fisioterapia cardiovascular</td>
-                        <td>000000</td>
-                        <td>maria.fisio@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Marcos</td>
-                        <td>Fisioterapia esportiva</td>
-                        <td>000000</td>
-                        <td>marcos.fisio@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Sabrina</td>
-                        <td>Fisioterapia em gerontologia</td>
-                        <td>000000</td>
-                        <td>sabrina.fisio@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>João</td>
-                        <td>Fisioterapia do trabalho</td>
-                        <td>000000</td>
-                        <td>joão.fisio@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Paulo</td>
-                        <td>Fisioterapia neuro funcional</td>
-                        <td>000000</td>
-                        <td>paulo.fisio@gmail.com</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
+        </section>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
 
     <!-- Footer Area -->

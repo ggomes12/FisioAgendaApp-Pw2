@@ -116,14 +116,14 @@
 											</li>
 											<li><a href="#sobre-nos">Sobre nos </a></li>
 											<li><a href="{% url 'contact-nos' %}">Contatos </a></li>
-											<li><a href="#">Serviços </a></li>
-											<li><a href="#">Paginas <i class="icofont-rounded-down"></i></a>
+											<li><a href="{% url 'services' %}">Serviços </a></li>
+											<!-- <li><a href="#">Paginas <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
 													<li><a href="{% url 'pagina_nao_encontrada' %}">página 01</a></li>
 													<li><a href="{% url 'pagina_nao_encontrada' %}">página 02</a></li>
 													<li><a href="{% url 'pagina_nao_encontrada' %}">página 03</a></li>
 												</ul>
-											</li> 
+											</li>  -->
 										</ul>
 									</nav>
 								</div>
@@ -211,7 +211,7 @@
 										<span></span>
 										<h4>Casos de Emergencia</h4>
 										<p>Em situações de emergência, cada segundo conta.O que fazer em casos de emergência:</p>
-										<a href="{% url 'pagina_nao_encontrada' %}">LEIA MAIS<i class="fa fa-long-arrow-right"></i></a>
+										<a href="{% url 'casos_emergencia' %}">LEIA MAIS<i class="fa fa-long-arrow-right"></i></a>
 									</div>
 								</div>
 							</div>
@@ -248,7 +248,7 @@
 											<li class="day">Sabado <span>09h00-18h30</span></li>
 											<li class="day">Domingo <span>09h00-15h00</span></li>
 										</ul> -->
-										<a href="{% url 'pagina_nao_encontrada' %}">LEIA MAIS<i class="fa fa-long-arrow-right"></i></a>
+										<a href="{% url 'horario_atendimentos' %}">LEIA MAIS<i class="fa fa-long-arrow-right"></i></a>
 									</div>
 								</div>
 							</div>
@@ -446,7 +446,7 @@
 							rápidas e eficazes.</p>
 							<div class="button">
 								<a href="{% url 'contact-nos' %}" class="btn">Contate-nos</a>
-								<a href="#" class="btn second">Leia mais<i class="fa fa-long-arrow-right"></i></a>
+								<a href="{% url 'casos_emergencia' %}" class="btn second">Leia mais<i class="fa fa-long-arrow-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -473,7 +473,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-prescription"></i>
-							<h4><a href="{% url 'pagina_nao_encontrada' %}">Fisioterapia ortopédica</a></h4>
+							<h4><a href="{% url 'descricao' %}">Fisioterapia ortopédica</a></h4>
 							<p>Concentra-se no tratamento de lesões musculoesqueléticas, como entorses, fraturas, luxações, tendinites e recuperação
 							pós-cirúrgica. O objetivo é restaurar a função e a mobilidade das articulações afetadas.</p>	
 						</div>

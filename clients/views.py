@@ -8,7 +8,7 @@ from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfi
 from clients.models import Cliente, Profissional, Consulta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .decorators import client_required, profissional_required, update_professional_profile_required, update_profile_required
+from .decorators import client_required, profissional_required
 from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -239,7 +239,7 @@ def marcar_consulta(request, nome_fisio, especialidade):
 
 
 @login_required
-@update_profile_required
+@client_required
 def update_profile(request):
     if request.method == 'POST':
         form = UserProfileForm(
@@ -259,7 +259,7 @@ def update_profile(request):
 
 
 @login_required
-@update_professional_profile_required
+@profissional_required
 def update_professional_profile(request):
     if request.method == 'POST':
         form = ProfessionalProfileForm(
@@ -276,3 +276,18 @@ def update_professional_profile(request):
         form = ProfessionalProfileForm(instance=request.user)
     
     return render(request, 'update_professional_profile.html', {'form': form})
+
+def services(request):
+    return render(request, 'services.html')
+
+
+def casos_emergencia(request):
+    return render(request, 'casos_emergencia.html')
+
+
+def horario_atendimentos(request):
+    return render(request, 'horario_atendimentos.html')
+
+
+def descricao(request):
+    return render(request, 'descricao.html')
