@@ -31,6 +31,42 @@ input {
     border-radius: 5px;
 }
 
+/* Estilos para a seção de informações do profissional */
+.profissional_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profissional_info .column {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Centraliza o h1 */
+header h1 {
+    text-align: center;
+}
+
+.profissional_info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.profissional_info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profissional_info table th,
+.profissional_info table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+
+
 .buttons-wrap {
     display: grid;
     text-align: center;
@@ -50,6 +86,4 @@ input {
 
 .btn-voltar {
     grid-area: voltar;
-    background-color: rgb(16, 119, 154) !important;
-
 }

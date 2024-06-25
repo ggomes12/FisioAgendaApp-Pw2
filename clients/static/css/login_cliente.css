@@ -54,22 +54,18 @@ input {
 
 .btn-proffessional{
     grid-area: proffessional;
-    background-color: rgb(25, 140, 247) !important;
 }
 
 .btn-register {
     grid-area: register;
-    background-color: rgb(25, 140, 247) !important;
 }
 
 .btn-forgot {
     grid-area: forgot;
-    background-color: rgb(25, 140, 247) !important;
 }
 
 .btn-voltar {
     grid-area: voltar;
-    background-color: rgb(25, 140, 247) !important;
 
 }
 

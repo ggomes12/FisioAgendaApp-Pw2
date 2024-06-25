@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name='copyright' content=''>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'css/registration_clientes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registro_clientes.css' %}">
     <script defer src="{% static 'js/registration_client.js' %}"></script>
 
     <!-- Title -->
@@ -130,41 +130,46 @@
     </header>
     <!-- End Header Area -->
 
+
         <div class="container">
-            <h1>Cadastro de Cliente</h1>
-
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                    {% endfor %}
-            </ul>
-            {% endif %}
-
             
-            <form method="post" action="{% url 'registration_client' %}">    
-                {% csrf_token %}
-                {{ form.as_p }}
+            <h1>Cadastro de Cliente</h1>
+            <section class="clients_info"></section>
 
-                <button type="submit" class="btn btn-cadastrar">Cadastrar </button>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                </ul>
+                {% endif %}
 
                 
-            </form>
-            <div class="mensagem">
-                <p>Deseja registrar-se como profissional? Clique no botao abaixo</p>
-            </div>
-            <div class="buttons-wrap">            
-                <!-- Link para voltar -->
-                <a href="{% url 'login_clients' %}" class="btn btn-voltar">Voltar</a>
-                <!-- <button class="btn btn-voltar" href="{% url 'login_clients' %}">Voltar</button> -->
+                <form method="post" action="{% url 'registration_client' %}">    
+                    {% csrf_token %}
+                    {{ form.as_p }}
 
-                <!-- Link para cadastro -->
-                <a href="{% url 'registration_prof' %}" class="btn btn-register">Cadastrar como Profissional</a>
+                    <button type="submit" class="btn btn-cadastrar">Cadastrar </button>
 
-            </div>
+                    
+                </form>
+                <div class="mensagem">
+                    <p>Deseja registrar-se como profissional? Clique no botao abaixo</p>
+                </div>
+                
+                <div class="buttons-wrap">            
+                    <!-- Link para voltar -->
+                    <a href="{% url 'login_clients' %}" class="btn btn-voltar">Voltar</a>
+                    <!-- <button class="btn btn-voltar" href="{% url 'login_clients' %}">Voltar</button> -->
 
+                    <!-- Link para cadastro -->
+                    <a href="{% url 'registration_prof' %}" class="btn btn-register">Cadastrar como Profissional</a>
+
+                </div>
+
+            
+            </section>
         </div>
-
 
 
         <!-- Footer Area -->

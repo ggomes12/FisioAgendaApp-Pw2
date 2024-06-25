@@ -98,6 +98,7 @@ section h2 {
 
 .btn-logout {
     grid-area: logout;
+    /* background-color: rgb(25, 140, 247) !important; */
 }
 
 
