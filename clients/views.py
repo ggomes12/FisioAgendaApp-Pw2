@@ -163,7 +163,20 @@ def news_blog(request):
 @never_cache
 def profile_prof(request):
     profissional = request.user.profissional
-    consultas = Consulta.objects.filter(profissional=profissional)
+    consultas_list = Consulta.objects.filter(profissional=profissional).order_by('data')
+
+    # Configura a paginação
+    paginator = Paginator(consultas_list, 10)  # 10 profissional por página
+
+    page = request.GET.get('page')
+    try:
+        consultas = paginator.page(page)
+    except PageNotAnInteger:
+        # Se a página não for um inteiro, exibe a primeira página.
+        consultas = paginator.page(1)
+    except EmptyPage:
+        # Se a página estiver fora do intervalo (por exemplo, 9999), exibe a última página de resultados.
+        consultas = paginator.page(paginator.num_pages)
 
     return render(request, 'profile_profissional.html', {
         'profissional': profissional,
@@ -183,7 +196,6 @@ def marcar_concluido(request, consulta_id):
             request, 'Você não tem permissão para concluir esta consulta.')
 
     return redirect('profile_prof')
-
 
 
 @login_required
