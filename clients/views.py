@@ -122,9 +122,34 @@ def handler500(request):
 
 def profissionais_lista(request):
     # lógica para obter a lista de profissionais
-    profissionais = []
+    txt_nome = request.GET.get('nome')
+    txt_especialidade = request.GET.get('especialidade')
+
+    # Filtra a lista de profissionais com base nos parâmetros fornecidos
+    clients_profissional_list = Profissional.objects.all()
+    if txt_nome:
+        clients_profissional_list = clients_profissional_list.filter(user__username__icontains=txt_nome)
+    if txt_especialidade:
+        clients_profissional_list = clients_profissional_list.filter(especialidade__icontains=txt_especialidade)
+
+    # Ordena a lista de profissionais
+    clients_profissional_list = clients_profissional_list.order_by('user__username')
+
+    # Configura a paginação
+    paginator = Paginator(clients_profissional_list, 10)  # 10 profissional por página
+
+    page = request.GET.get('page')
+    try:
+        clients_profissional = paginator.page(page)
+    except PageNotAnInteger:
+        # Se a página não for um inteiro, exibe a primeira página.
+        clients_profissional = paginator.page(1)
+    except EmptyPage:
+        # Se a página estiver fora do intervalo (por exemplo, 9999), exibe a última página de resultados.
+        clients_profissional = paginator.page(paginator.num_pages)
     
-    return render(request, 'profissionais_lista.html')
+    return render(request, 'profissionais_lista.html', {
+        'clients_profissional': clients_profissional})
 
 def portfolio_details(request):
     return render(request, 'portfolio-details.html')
