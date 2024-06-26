@@ -28,6 +28,7 @@ urlpatterns = [
           name='profissionais_lista'),
      path('professional/update_profile/', views.update_professional_profile, name='update_professional_profile'),
      
+     
      # path gerais
     path('voltar/', views.voltar, name='voltar'),
     path('contact-nos', views.contact, name='contact-nos'),

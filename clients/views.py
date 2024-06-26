@@ -14,6 +14,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 
+
 def index(request):
     return render(request, 'index.html')
 
@@ -256,10 +257,11 @@ def marcar_consulta(request, nome_fisio, especialidade):
             nova_consulta.profissional = profissional  
 
             data = form.cleaned_data['data']
-            horario = form.cleaned_data['horario']
+            horario_inicial = form.cleaned_data['horario_inicial']
+            horario_final = form.cleaned_data['horario_final']
 
             # Verifica se ja tem prof com agendamento para data e hora
-            if Consulta.objects.filter(data=data, horario=horario, profissional=profissional).exists():
+            if Consulta.objects.filter(data=data, horario_inicial=horario_inicial, horario_final=horario_final, profissional=profissional).exists():
                 messages.error(
                     request, 'Já existe uma consulta agendada para este médico, dia e horário.')
             else:
@@ -345,3 +347,4 @@ def password_change(request):
     else:
         form = CustomizadoPasswordChangeForm(request.user)
     return render(request, 'password_change_form.html', {'form': form})
+

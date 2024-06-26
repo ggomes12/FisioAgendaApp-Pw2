@@ -37,10 +37,11 @@ class ConsultaForm(forms.ModelForm):
 
     class Meta:
         model = Consulta
-        fields = ['profissional', 'data', 'horario']
+        fields = ['profissional', 'data', 'horario_inicial', 'horario_final']
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),
-            'horario': forms.TimeInput(attrs={'type': 'time'}),
+            'horario_inicial': forms.TimeInput(attrs={'type': 'time'}),
+            'horario_final': forms.TimeInput(attrs={'type': 'time'})
         }
 
 
