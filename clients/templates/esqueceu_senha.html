@@ -133,22 +133,31 @@
     <!-- End Header Area -->
 
     <!-- Error Page -->
-    <section class="error-page section">
     <div class="container">
-        <br></br>
-        <label>Preencha com seu e-mail para receber instruções sobre como redefinir sua senha.</label>
-        <br></br>
-        <form method="post">
-            
-            {% csrf_token %}
-            {{ form.as_p }}
-            <br></br>
-            <!-- <button type="submit" >Esqueceu Senha</button> -->
-            <button type="submit" class="btn btn-login">Esqueceu Senha</button>
-            
-        </form>
-    </div>
-    </section>
+            <section class="clients_info">
+                <div class="column">
+                    <br></br>
+                    <label>Preencha com seu e-mail para receber instruções sobre como redefinir sua senha.</label>
+                    <br></br>
+                    <form method="post">
+                        
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <!-- <button type="submit" >Esqueceu Senha</button> -->
+                        
+                        <div class="buttons-wrap">
+                            <button type="submit" class="btn btn-esqueceu">Esqueceu Senha</button>
+                            
+                            <a href="{% url 'login_clients' %}" class="btn btn-voltar">Voltar</a>
+                                
+                        </div>     
+
+                        
+                    </form>
+        
+                </div>
+            </section>
+        </div>
     <!--/ End Error Page -->
 
     <!-- Footer Area -->
