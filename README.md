@@ -56,7 +56,7 @@ Make sure you have the following tools installed on your machine:
 6. **Apply the migrations to set up the database:**
 
     ```bash
-    $ python manage.py makemigrations clients
+    $ python manage.py makemigrations
     $ python manage.py migrate
     ```
 
