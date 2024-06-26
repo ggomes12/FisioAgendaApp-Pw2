@@ -42,8 +42,9 @@ urlpatterns = [
     path('404/', views.pagina_nao_encontrada, name='pagina_nao_encontrada'),
     path('portfolio_details/', views.portfolio_details, name='portfolio_details'),
     path('news_blog/', views.news_blog, name='news_blog'),
-    path("password_change", auth_views.PasswordChangeView.as_view(
-        template_name='password_change_form.html'), name="password_change"),
+    
+    path('password_change/', views.password_change, name='password_change'),
+    
     path("password_change_done/", auth_views.PasswordChangeDoneView.as_view(
         template_name='password_change_done.html'), name="password_change_done"),
     path('esqueceu_senha/', auth_views.PasswordResetView.as_view(

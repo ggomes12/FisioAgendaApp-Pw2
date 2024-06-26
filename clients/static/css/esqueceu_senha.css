@@ -15,3 +15,26 @@
 .choose-buttons button:hover {
     background-color: #0056b3;
 }
+
+
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 60px 55px 100px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'primary secondary';
+}
+
+
+
+.btn-primary {
+    grid-area: primary;
+}
+
+.btn-secondary {
+    grid-area: secondary;
+}

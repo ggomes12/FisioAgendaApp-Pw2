@@ -1,10 +1,10 @@
 from django.core.exceptions import ValidationError
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
-from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfileForm, ProfessionalProfileForm
+from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfileForm, ProfessionalProfileForm, CustomizadoPasswordChangeForm
 from clients.models import Cliente, Profissional, Consulta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -328,3 +328,20 @@ def horario_atendimentos(request):
 
 def descricao(request):
     return render(request, 'descricao.html')
+
+
+@login_required
+def password_change(request):
+    if request.method == 'POST':
+        form = CustomizadoPasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            # mantem o usuário logado após a troca de senha
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Sua senha foi atualizada com sucesso!')
+            return redirect('password_change')
+        else:
+            messages.error(request, 'Por favor, corrija os erros abaixo.')
+    else:
+        form = CustomizadoPasswordChangeForm(request.user)
+    return render(request, 'password_change_form.html', {'form': form})

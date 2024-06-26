@@ -14,7 +14,7 @@
 
 
     <!-- Title -->
-    <title>Atv - pw1.</title>
+    <title>Esqueceu Senha</title>
 
 
     <!-- Google Fonts -->
@@ -22,8 +22,7 @@
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
     <!-- Nice Select CSS -->
     <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
     <!-- Font Awesome CSS -->
@@ -46,6 +45,8 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 
 <body>
@@ -66,22 +67,6 @@
     </div>
     <!-- End Preloader -->
 
-    <!-- Get Pro Button -->
-    <!-- <ul class="pro-features">
-			<a class="get-pro" href="#">Get Pro</a>
-			<li class="big-title">Pro Version Available on Themeforest</li>
-			<li class="title">Pro Version Features</li>
-			<li>2+ premade home pages</li>
-			<li>20+ html pages</li>
-			<li>Color Plate With 12+ Colors</li>
-			<li>Sticky Header / Sticky Filters</li>
-			<li>Working Contact Form With Google Map</li>
-			<div class="button">
-				<a href="http://preview.themeforest.net/item/mediplus-medical-and-doctor-html-template/full_screen_preview/26665910?_ga=2.145092285.888558928.1591971968-344530658.1588061879" target="_blank" class="btn">Pro Version Demo</a>
-				<a href="https://themeforest.net/item/mediplus-medical-and-doctor-html-template/26665910" target="_blank" class="btn">Buy Pro Version</a>
-			</div>
-		</ul> -->
-
     <!-- Header Area -->
     <header class="header">
         <!-- Topbar -->
@@ -91,9 +76,6 @@
                     <div class="col-lg-6 col-md-5 col-12">
                         <!-- Contact -->
                         <ul class="top-link">
-                            <!-- <li><a href="#">Sobre nos</a></li> -->
-                            <!-- <li><a href="#">Doctors</a></li> -->
-                            <!-- <li><a href="#">Contatos</a></li> -->
                             <li><a href="#">FAQ</a></li>
                         </ul>
                         <!-- End Contact -->
@@ -137,29 +119,11 @@
                                                 <li><a href="{% url 'index' %}">Pagina inicial</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li><a href="#sobre-nos">Sobre nos </a></li>
-											<li><a href="#">Contatos </a></li>
-											<li><a href="#">Paginas <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="404.html">colocar algo</a></li>
-												</ul>
-											</li> -->
-                                        <!-- <li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
-														<ul class="dropdown">
-															<li><a href="blog-single.html">Blog Details</a></li>
-														</ul>
-													</li> -->
-                                        <!-- <li><a href="contact.html">Contact Us</a></li> -->
                                     </ul>
                                 </nav>
                             </div>
                             <!--/ End Main Menu -->
                         </div>
-                        <!-- <div class="col-lg-2 col-12">
-								<div class="get-quote">
-									<a href="login_clients.html" class="btn">Entrar</a>
-								</div>
-							</div> -->
                     </div>
                 </div>
             </div>
@@ -171,14 +135,17 @@
     <!-- Error Page -->
     <section class="error-page section">
     <div class="container">
-
+        <br></br>
         <label>Preencha com seu e-mail para receber instruções sobre como redefinir sua senha.</label>
-    
+        <br></br>
         <form method="post">
             
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" >Esquecer Senha</button>
+            <br></br>
+            <!-- <button type="submit" >Esqueceu Senha</button> -->
+            <button type="submit" class="btn btn-login">Esqueceu Senha</button>
+            
         </form>
     </div>
     </section>
