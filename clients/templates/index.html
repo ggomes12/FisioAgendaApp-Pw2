@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>FisioAgenda - atv disciplina PW1.</title>
+        <title>FisioAgenda</title>
 		
 		
 		
@@ -111,19 +111,12 @@
 										<ul class="nav menu">
 											<li class="active"><a href="#">Inicio <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="{% url 'index' %}">Pagina inicial</a></li>
+													<li><a href="{% url 'index' %}">Página inicial</a></li>
 												</ul>
 											</li>
-											<li><a href="#sobre-nos">Sobre nos </a></li>
-											<li><a href="{% url 'contact-nos' %}">Contatos </a></li>
+											<li><a href="#sobre-nos">Sobre nós </a></li>
+											<li><a href="{% url 'contact-nos' %}">Contate-nos</a></li>
 											<li><a href="{% url 'services' %}">Serviços </a></li>
-											<!-- <li><a href="#">Paginas <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="{% url 'pagina_nao_encontrada' %}">página 01</a></li>
-													<li><a href="{% url 'pagina_nao_encontrada' %}">página 02</a></li>
-													<li><a href="{% url 'pagina_nao_encontrada' %}">página 03</a></li>
-												</ul>
-											</li>  -->
 										</ul>
 									</nav>
 								</div>
@@ -146,14 +139,14 @@
 		<section class="slider">
 			<div class="hero-slider">
 				<!-- Start Single Slider -->
-				<div class="single-slider">
-					<img src="{% static 'img/slid02.png' %}">
+				 <div class="single-slider" style="background-image: url('{% static 'img/slid02.png' %}')">
+					<!-- <img src="{% static 'img/slid02.png' %}"> -->
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>Nos fornecemos <span>servicos</span> fisioterapeuticos que voce pode <span>confiar!</span></h1>
-									<p>"A fisioterapia é uma jornada de cura que exige dedicação, persistência e confiança no processo." </p>
+									<h1>Facilite o <span>agendamento</span> das suas consultas <span>fisioterapêuticas</span>!</h1>
+									<p>"Nossa plataforma permite que você se cadastre e agende suas consultas de fisioterapia de maneira rápida e sem complicações." </p>
 								</div>
 							</div>
 						</div>
@@ -161,15 +154,13 @@
 				</div>
 				<!-- End Single Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider">
+				<div class="single-slider" style="background-image: url('{% static 'img/slid2.png' %}')">
 					<div class="container">
-						<img src="{% static 'img/slid2.png' %}">
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>Nos fornecemos <span>servicos</span> fisioterapeuticos que voce pode <span>confiar!</span></h1>
-									<p>"A fisioterapia não trata apenas os sintomas, mas busca a causa raiz das condições para promover uma recuperação
-									completa." </p>
+									<h1>Agende suas <span>consultas</span> de fisioterapia com <span>facilidade</span>!</h1>
+									<p>"Nossa plataforma torna o agendamento de consultas simples e rápido, para que você possa focar na sua recuperação." </p>
 								</div>
 							</div>
 						</div>
@@ -177,14 +168,13 @@
 				</div>
 				<!-- Start End Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider">
+				<div class="single-slider" style="background-image: url('{% static 'img/slid04.png' %}')">
 					<div class="container">
-						<img src="{% static 'img/slid04.png' %}">
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>Nos fornecemos <span>servicos</span> fisioterapeuticos que voce pode <span>confiar!</span></h1>
-									<p>"A fisioterapia é a chave para restaurar a mobilidade, aliviar a dor e melhorar a qualidade de vida." </p>
+									<h1>Cadastre-se e <span>marque</span> suas consultas de fisioterapia <span>online</span>!</h1>
+									<p>"Com nossa plataforma, você pode gerenciar seus agendamentos de fisioterapia de forma prática e conveniente." </p>
 								</div>
 							</div>
 						</div>
