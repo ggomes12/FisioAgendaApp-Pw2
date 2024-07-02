@@ -115,8 +115,8 @@ def logout_prof(request):
     logout(request)
     return redirect('login_prof')
 
-def pagina_nao_encontrada(request, exception):
-    return render(request, '404/404.html')
+def pagina_nao_encontrada(request):
+    return render(request, '404.html')
 
 def handler500(request):
     return render(request, '500.html')
@@ -327,11 +327,27 @@ def casos_emergencia(request):
 def horario_atendimentos(request):
     return render(request, 'horario_atendimentos.html')
 
+#descrições dos tipos de fisioterapia
 
-def descricao(request):
-    return render(request, 'descricao.html')
+def descricao_ost(request):
+    return render(request, 'descricao_ost.html')
 
+def descricao_neuro(request):
+    return render(request, 'descricao_neuro.html')
 
+def descricao_esportiva(request):
+    return render(request, 'descricao_esportiva.html')
+
+def descricao_pediatrica(request):
+    return render(request, 'descricao_pediatrica.html')
+
+def descricao_respiratoria(request):
+    return render(request, 'descricao_respiratoria.html')
+
+def descricao_geriatrica(request):
+    return render(request, 'descricao_geriatrica.html')
+
+# ---------------------
 @login_required
 def password_change(request):
     if request.method == 'POST':
