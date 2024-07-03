@@ -68,8 +68,6 @@
 						<div class="col-lg-6 col-md-5 col-12">
 							<!-- Contact -->
 							<ul class="top-link">
-								<!-- <li><a href="#">Sobre nos</a></li> -->
-								<!-- <li><a href="#">Contatos</a></li> -->
 								<li><a href="#">FAQ</a></li>
 							</ul>
 							<!-- End Contact -->
@@ -93,11 +91,6 @@
 					<div class="inner">
 						<div class="row">
 							<div class="col-lg-3 col-md-3 col-12">
-								<!-- Start Logo -->
-								<!-- <div class="logo">
-		                                <a href="index.html"><img src="img/logoo.png" alt="#"></a>
-		                            </div> -->
-								<!-- End Logo -->
 								<!-- Mobile Nav -->
 								<div class="mobile-nav"></div>
 								<!-- End Mobile Nav -->
@@ -107,9 +100,9 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Inicio <i class="icofont-rounded-down"></i></a>
+											<li class="active"><a href="#">Início <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="{% url 'index' %}">Pagina inicial</a></li>
+													<li><a href="{% url 'index' %}">Página inicial</a></li>
 												</ul>
 											</li>
 										</ul>
@@ -125,7 +118,6 @@
 		</header>
 		<!-- End Header Area -->
 	
-		<!-- Breadcrumbs -->
 		<div class="breadcrumbs overlay">
 			<div class="container">
 				<div class="bread-inner">
@@ -133,7 +125,7 @@
 						<div class="col-12">
 							<h2>Casos de Emergência</h2>
 							<ul class="bread-list">
-								<li><a href="{% url 'index' %}">Pagina inicial</a></li>
+								<li><a href="{% url 'index' %}">Página inicial</a></li>
 								<li><i class="icofont-simple-right"></i></li>
 								<li class="active">Casos de Emergência</li>
 							</ul>
@@ -142,104 +134,139 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Breadcrumbs -->
-				
-		<!-- Start Contact Us -->
+
 		<section class="contact-us section">
 			<div class="container">
 				<div class="inner">
 					<div class="row"> 
-						<div class="col-lg-6">
-							<div class="contact-us-left">
-								<!--Start Google-map -->
-								<div id="myMap"></div>
-								<!--/End Google-map -->
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="contact-us-form">
-								<h2>Em casos de emergência ... </h2>
-								<p>Algo aqui, bla bla bla ...</p>
-								<!-- Form -->
-								<!-- <form class="form" method="post" action="../mail/mail.php">
-									<div class="row">
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" name="name" placeholder="Nome" required="">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="email" name="email" placeholder="Email" required="">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" name="phone" placeholder="Celular" required="">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" name="subject" placeholder="Assunto" required="">
-											</div>
-										</div>
-										<div class="col-lg-12">
-											<div class="form-group">
-												<textarea name="message" placeholder="Escreva sua mensagem" required=""></textarea>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group login-btn">
-												<button class="btn" type="submit">Enviar</button>
-											</div>
-											<div class="checkbox">
-												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Você já está escrito na nossa Newsletter ?</label>
-											</div>
-										</div>
-									</div>
-								</form> -->
-								<!--/ End Form -->
-							</div>
+						<div class="contact-us-form">
+							<h2>Como Agir em Casos de Emergência</h2>
+							<h3>Passos Gerais</h3>
+							<br>
+							<h5>1. *Avaliar a Situação*</h5>
+							<p>
+								- Mantenha a calma e avalie rapidamente o ambiente para garantir a segurança de todos.
+								- Verifique os sinais vitais do paciente e a gravidade da situação.
+							</p>
+							<h5>2. *Chamar por Ajuda*</h5>
+							<p>
+								- Peça a alguém para ligar para os serviços de emergência ou faça você mesmo.
+								- Serviços de emergência importantes:
+									- *Samu:* 192
+									- *Bombeiros:* 193
+							</p>
+
+							<h5>3. *Prestar Primeiros Socorros*</h5>
+							<p>	
+								- Realize os primeiros socorros apropriados à situação enquanto aguarda a chegada do socorro.
+								- Siga procedimentos específicos para cada tipo de emergência.
+							</p>
+							<h5>4. *Aguardar e Monitorar*</h5>	
+							<p>
+								- Continue monitorando a condição do paciente.
+								- Mantenha o paciente calmo e confortável até a chegada do socorro.
+							</p>
+						</div>	
+					</div>
+				</div>
+
+				<br></br>
+
+				<div class="inner">
+					<div class="row"> 
+						<div class="contact-us-form">
+							<h2>Especificações para Cada Caso de Emergência</h2>
+							<h3>Espasmo Muscular Agudo</h3>
+							<br>
+							<h5>1. *Avaliar a Situação*</h5>
+							<p>
+								- Identifique se o paciente está com dor intensa e rigidez muscular.
+							</p>
+							<h5>2. *Chamar por Ajuda*</h5>
+							<p>
+								- Caso necessário, peça ajuda a um profissional de saúde ou fisioterapeuta.
+							</p>
+							<h5>3. *Prestar Primeiros Socorros*</h5>
+							<p>
+								- *Aplicar calor:* Utilize uma bolsa de água quente na área afetada por 15-20 minutos.
+								- *Alongamento suave:* Faça alongamentos suaves sem forçar.
+								- *Massagem:* Massageie gentilmente a área para aliviar a tensão.
+							</p>
+							<h5>4. *Aguardar e Monitorar*</h5>	
+							<p>
+								- Observe a resposta do paciente aos primeiros socorros.
+								- Encaminhe o paciente a um médico ou fisioterapeuta se a dor persistir.
+							</p>
 						</div>
 					</div>
 				</div>
-				<!-- <div class="contact-info">
-					<div class="row">
-						<div class="col-lg-4 col-12 ">
-							<div class="single-info">
-								<i class="icofont icofont-ui-call"></i>
-								<div class="content">
-									<h3>89 9 0000-9988</h3>
-									<p>infos@gmail.com</p>
-								</div>
-							</div>
-						</div>
+				<div class="inner">
+					<div class="row"> 
+						<div class="contact-us-form">
+							<h3>Lesão Traumática (Entorse, Luxação, Fratura)</h3>
+							<br>
+							<h5>1. *Avaliar a Situação*</h5>
+							<p>
+								- Verifique se há dor intensa, inchaço e incapacidade de mover a área afetada.
+							</p>
+							<h5>2. *Chamar por Ajuda*</h5>
+							<p>	
+								- Chame os serviços de emergência (SAMU: 192, Bombeiros: 193).
+							</p>
+							<h5>3. *Prestar Primeiros Socorros*</h5>
+							<p>	
+								- *Imobilização:* Use uma bandagem ou tala para imobilizar a área afetada.
+								- *Gelo:* Aplique gelo envolto em um pano por 15-20 minutos para reduzir o inchaço.
+								- *Elevação:* Mantenha a área elevada para diminuir o inchaço.
 
-						<div class="col-lg-4 col-12 ">
-							<div class="single-info">
-								<i class="icofont-google-map"></i>
-								<div class="content">
-									<h3>Algum lugar, pra relaxar</h3>
-									<p>eu vou pedir pros anjos cuidarem de mim</p>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="col-lg-4 col-12 ">
-							<div class="single-info">
-								<i class="icofont icofont-wall-clock"></i>
-								<div class="content">
-									<h3>Segundas - Sabado: 08am - 21pm</h3>
-									<p>Domingo eh fechado</p>
-								</div>
-							</div>
+							</p>
+							<h5>4. *Aguardar e Monitorar*</h5>
+							<p>	
+								- Mantenha o paciente calmo e monitorado até a chegada do socorro.
+								- Evite mover o paciente desnecessariamente.
+							</p>
 						</div>
 					</div>
 				</div>
-			</div> -->
+				<div class="inner">
+					<div class="row"> 
+						<div class="contact-us-form">
+							<h3>Parada Cardiorrespiratória</h3>
+							<br>
+							<h5>1. *Avaliar a Situação*</h5>
+							<p>
+								- Verifique se o paciente está inconsciente e sem respiração ou pulso.
+							</p>
+							<h5>2. *Chamar por Ajuda*</h5>
+							<p>
+								- Ligue imediatamente para os serviços de emergência (SAMU: 192).
+							</p>
+							<h5>3. *Prestar Primeiros Socorros*</h5>
+							<p>	3. *Prestar Primeiros Socorros*
+								- *RCP:* Inicie compressões torácicas intercaladas com ventilações.
+							</p>
+							<h5>4. *Aguardar e Monitorar*</h5>
+							<p>	
+								- Continue realizando RCP até que o socorro chegue ou o paciente recupere a consciência.
+								- Use um desfibrilador automático externo (DAE) se disponível.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="inner">
+					<div class="row"> 
+						<div class="contact-us-form">
+							<h5>Telefones de Serviços Públicos</h5>
+							<br>
+							<p>
+								- *Samu:* 192
+								- *Bombeiros:* 193
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
-		<!--/ End Contact Us -->
 		
 		<!-- Footer Area -->
 		<footer id="footer" class="footer ">

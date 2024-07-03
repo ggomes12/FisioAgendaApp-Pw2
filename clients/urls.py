@@ -28,6 +28,7 @@ urlpatterns = [
           name='profissionais_lista'),
      path('professional/update_profile/', views.update_professional_profile, name='update_professional_profile'),
      
+     
      # path gerais
     path('voltar/', views.voltar, name='voltar'),
     path('contact-nos', views.contact, name='contact-nos'),
@@ -38,12 +39,18 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('casos_emergencia/', views.casos_emergencia, name='casos_emergencia'),
     path('horario_atendimentos/', views.horario_atendimentos, name='horario_atendimentos'),
-    path('descricao/', views.descricao, name='descricao'),
+    path('descricao_ost/', views.descricao_ost, name='descricao_ost'),
+    path('descricao_neuro/', views.descricao_neuro, name='descricao_neuro'),
+    path('descricao_esportiva/', views.descricao_esportiva, name='descricao_esportiva'),
+    path('descricao_pediatrica/', views.descricao_pediatrica, name='descricao_pediatrica'),
+    path('descricao_respiratoria/', views.descricao_respiratoria, name='descricao_respiratoria'),
+    path('descricao_geriatrica/', views.descricao_geriatrica, name='descricao_geriatrica'),
     path('404/', views.pagina_nao_encontrada, name='pagina_nao_encontrada'),
     path('portfolio_details/', views.portfolio_details, name='portfolio_details'),
     path('news_blog/', views.news_blog, name='news_blog'),
-    path("password_change", auth_views.PasswordChangeView.as_view(
-        template_name='password_change_form.html'), name="password_change"),
+    
+    path('password_change/', views.password_change, name='password_change'),
+    
     path("password_change_done/", auth_views.PasswordChangeDoneView.as_view(
         template_name='password_change_done.html'), name="password_change_done"),
     path('esqueceu_senha/', auth_views.PasswordResetView.as_view(

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/agendamento_consult.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agendamento_consultas.css' %}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -130,15 +130,9 @@
 
     <body>
         <div class="container">
-            <header>
-                <div class="photo-frame">
-                    <img src="{% static 'img/teste.jpeg' %}" alt="foto">
-                </div>
-                <h1>Olá! Seja bem-vindo(a)!</h1>
-            </header>
-
             <section class="clients_info">
                 <div class="column">
+                    <br></br>
                     <h2>Realize seu Agendamento</h2>
                     <form method="post" id="consultaForm">
                         {% csrf_token %}
@@ -156,14 +150,14 @@
                         <label for="{{ form.data.id_for_label }}">Selecione a Data da Consulta:</label>
                         {{ form.data }}
             
-                        <label for="{{ form.horario.id_for_label }}">Horário da Consulta:</label>
-                        {{ form.horario }}
+                        <label for="{{ form.horario_inicial.id_for_label }}">Horário de início da Consulta:</label>
+                        {{ form.horario_inicial }}
+
+                        <label for="{{ form.horario_final.id_for_label }}">Horário de término da Consulta:</label>
+                        {{ form.horario_final }}
             
                         <button type="submit">Agendar</button>
-            
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'logout_clients' %}">Logout</a></li>
-                        {% endif %}
+
             
                         {% if form.errors %}
                         <div class="errors">
@@ -171,6 +165,13 @@
                         </div>
                         {% endif %}
                     </form>
+                    <div class="buttons-wrap">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout_clients' %}" class="btn btn-logout">Logout</a>
+                        <a href="{% url 'profile_clients' %}" class="btn btn-voltar">Voltar</a>
+                        {% endif %}
+                            
+                    </div>     
                 </div>
             </section>
         </div>

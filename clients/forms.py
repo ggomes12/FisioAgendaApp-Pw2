@@ -1,6 +1,6 @@
 # clients/forms.py
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from clients.models import Cliente, Consulta, Profissional
 
@@ -37,10 +37,11 @@ class ConsultaForm(forms.ModelForm):
 
     class Meta:
         model = Consulta
-        fields = ['profissional', 'data', 'horario']
+        fields = ['profissional', 'data', 'horario_inicial', 'horario_final']
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),
-            'horario': forms.TimeInput(attrs={'type': 'time'}),
+            'horario_inicial': forms.TimeInput(attrs={'type': 'time'}),
+            'horario_final': forms.TimeInput(attrs={'type': 'time'})
         }
 
 
@@ -137,4 +138,33 @@ class ProfessionalProfileForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-    
+
+
+class CustomizadoPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(
+        label='Senha Antiga',
+        strip=False,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Senha Antiga'})
+    )
+    new_password1 = forms.CharField(
+        label='Nova Senha',
+        strip=False,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Nova Senha'})
+    )
+    new_password2 = forms.CharField(
+        label='Confirmar Nova Senha',
+        strip=False,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Confirmar Nova Senha'})
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['old_password'].widget.attrs.update(
+            {'class': 'form-control'})
+        self.fields['new_password1'].widget.attrs.update(
+            {'class': 'form-control'})
+        self.fields['new_password2'].widget.attrs.update(
+            {'class': 'form-control'})

@@ -1,10 +1,10 @@
 from django.core.exceptions import ValidationError
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
-from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfileForm, ProfessionalProfileForm
+from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfileForm, ProfessionalProfileForm, CustomizadoPasswordChangeForm
 from clients.models import Cliente, Profissional, Consulta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -12,6 +12,7 @@ from .decorators import client_required, profissional_required
 from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
 
 
 def index(request):
@@ -115,8 +116,8 @@ def logout_prof(request):
     logout(request)
     return redirect('login_prof')
 
-def pagina_nao_encontrada(request, exception):
-    return render(request, '404/404.html')
+def pagina_nao_encontrada(request):
+    return render(request, '404.html')
 
 def handler500(request):
     return render(request, '500.html')
@@ -257,10 +258,11 @@ def marcar_consulta(request, nome_fisio, especialidade):
             nova_consulta.profissional = profissional  
 
             data = form.cleaned_data['data']
-            horario = form.cleaned_data['horario']
+            horario_inicial = form.cleaned_data['horario_inicial']
+            horario_final = form.cleaned_data['horario_final']
 
             # Verifica se ja tem prof com agendamento para data e hora
-            if Consulta.objects.filter(data=data, horario=horario, profissional=profissional).exists():
+            if Consulta.objects.filter(data=data, horario_inicial=horario_inicial, horario_final=horario_final, profissional=profissional).exists():
                 messages.error(
                     request, 'Já existe uma consulta agendada para este médico, dia e horário.')
             else:
@@ -326,6 +328,40 @@ def casos_emergencia(request):
 def horario_atendimentos(request):
     return render(request, 'horario_atendimentos.html')
 
+#descrições dos tipos de fisioterapia
 
-def descricao(request):
-    return render(request, 'descricao.html')
+def descricao_ost(request):
+    return render(request, 'descricao_ost.html')
+
+def descricao_neuro(request):
+    return render(request, 'descricao_neuro.html')
+
+def descricao_esportiva(request):
+    return render(request, 'descricao_esportiva.html')
+
+def descricao_pediatrica(request):
+    return render(request, 'descricao_pediatrica.html')
+
+def descricao_respiratoria(request):
+    return render(request, 'descricao_respiratoria.html')
+
+def descricao_geriatrica(request):
+    return render(request, 'descricao_geriatrica.html')
+
+# ---------------------
+@login_required
+def password_change(request):
+    if request.method == 'POST':
+        form = CustomizadoPasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            # mantem o usuário logado após a troca de senha
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Sua senha foi atualizada com sucesso!')
+            return redirect('password_change')
+        else:
+            messages.error(request, 'Por favor, corrija os erros abaixo.')
+    else:
+        form = CustomizadoPasswordChangeForm(request.user)
+    return render(request, 'password_change_form.html', {'form': form})
+

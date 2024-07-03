@@ -43,9 +43,11 @@ class Consulta(models.Model):
     profissional = models.ForeignKey(
         Profissional, null=True, on_delete=models.SET_NULL)
     data = models.DateField()
-    horario = models.TimeField()
+    horario_inicial = models.TimeField(default='08:00:00')
+    horario_final = models.TimeField(default='17:00:00')
     status = models.CharField(max_length=20, choices=[(
         'em aberto', 'Em Aberto'), ('concluido', 'Concluído')], default='em aberto')
 
     def __str__(self):
-        return f"Consulta com {self.profissional.user.username} ({self.profissional.especialidade}) em {self.data} às {self.horario}"
+        return f"Consulta com {self.profissional.user.username} ({self.profissional.especialidade}) em {self.data} das {self.horario_inicial} às {self.horario_final}"
+

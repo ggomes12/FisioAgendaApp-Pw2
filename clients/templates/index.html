@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>FisioAgenda - atv disciplina PW1.</title>
+        <title>FisioAgenda</title>
 		
 		
 		
@@ -111,19 +111,12 @@
 										<ul class="nav menu">
 											<li class="active"><a href="#">Inicio <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="{% url 'index' %}">Pagina inicial</a></li>
+													<li><a href="{% url 'index' %}">Página inicial</a></li>
 												</ul>
 											</li>
-											<li><a href="#sobre-nos">Sobre nos </a></li>
-											<li><a href="{% url 'contact-nos' %}">Contatos </a></li>
+											<li><a href="#sobre-nos">Sobre nós </a></li>
+											<li><a href="{% url 'contact-nos' %}">Contate-nos</a></li>
 											<li><a href="{% url 'services' %}">Serviços </a></li>
-											<!-- <li><a href="#">Paginas <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="{% url 'pagina_nao_encontrada' %}">página 01</a></li>
-													<li><a href="{% url 'pagina_nao_encontrada' %}">página 02</a></li>
-													<li><a href="{% url 'pagina_nao_encontrada' %}">página 03</a></li>
-												</ul>
-											</li>  -->
 										</ul>
 									</nav>
 								</div>
@@ -146,14 +139,14 @@
 		<section class="slider">
 			<div class="hero-slider">
 				<!-- Start Single Slider -->
-				<div class="single-slider">
-					<img src="{% static 'img/slid02.png' %}">
+				 <div class="single-slider" style="background-image: url('{% static 'img/slid02.png' %}')">
+					<!-- <img src="{% static 'img/slid02.png' %}"> -->
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>Nos fornecemos <span>servicos</span> fisioterapeuticos que voce pode <span>confiar!</span></h1>
-									<p>"A fisioterapia é uma jornada de cura que exige dedicação, persistência e confiança no processo." </p>
+									<h1>Facilite o <span>agendamento</span> das suas consultas <span>fisioterapêuticas</span>!</h1>
+									<p>"Nossa plataforma permite que você se cadastre e agende suas consultas de fisioterapia de maneira rápida e sem complicações." </p>
 								</div>
 							</div>
 						</div>
@@ -161,15 +154,13 @@
 				</div>
 				<!-- End Single Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider">
+				<div class="single-slider" style="background-image: url('{% static 'img/slid2.png' %}')">
 					<div class="container">
-						<img src="{% static 'img/slid2.png' %}">
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>Nos fornecemos <span>servicos</span> fisioterapeuticos que voce pode <span>confiar!</span></h1>
-									<p>"A fisioterapia não trata apenas os sintomas, mas busca a causa raiz das condições para promover uma recuperação
-									completa." </p>
+									<h1>Agende suas <span>consultas</span> de fisioterapia com <span>facilidade</span>!</h1>
+									<p>"Nossa plataforma torna o agendamento de consultas simples e rápido, para que você possa focar na sua recuperação." </p>
 								</div>
 							</div>
 						</div>
@@ -177,14 +168,13 @@
 				</div>
 				<!-- Start End Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider">
+				<div class="single-slider" style="background-image: url('{% static 'img/slid04.png' %}')">
 					<div class="container">
-						<img src="{% static 'img/slid04.png' %}">
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>Nos fornecemos <span>servicos</span> fisioterapeuticos que voce pode <span>confiar!</span></h1>
-									<p>"A fisioterapia é a chave para restaurar a mobilidade, aliviar a dor e melhorar a qualidade de vida." </p>
+									<h1>Cadastre-se e <span>marque</span> suas consultas de fisioterapia <span>online</span>!</h1>
+									<p>"Com nossa plataforma, você pode gerenciar seus agendamentos de fisioterapia de forma prática e conveniente." </p>
 								</div>
 							</div>
 						</div>
@@ -209,8 +199,8 @@
 									</div>
 									<div class="single-content">
 										<span></span>
-										<h4>Casos de Emergencia</h4>
-										<p>Em situações de emergência, cada segundo conta.O que fazer em casos de emergência:</p>
+										<h4>Casos de Emergência</h4>
+										<p>Em situações de emergência, cada segundo conta. O que fazer em casos de emergência:</p>
 										<a href="{% url 'casos_emergencia' %}">LEIA MAIS<i class="fa fa-long-arrow-right"></i></a>
 									</div>
 								</div>
@@ -225,8 +215,8 @@
 									</div>
 									<div class="single-content">
 										<span></span>
-										<h4>Lista de medicos disponiveis</h4>
-										<p>Eh essencial ter acesso rápido a uma lista de médicos disponíveis. Aqui está nossa lista:</p>
+										<h4>Lista de médicos disponiveis</h4>
+										<p>É essencial ter acesso rápido a uma lista de médicos disponíveis. Aqui está nossa lista:</p>
 										<a href="{% url 'profissionais_lista' %}">LEIA MAIS<i class="fa fa-long-arrow-right"></i></a>
 									</div>
 								</div>
@@ -241,7 +231,7 @@
 									</div>
 									<div class="single-content">
 										<span></span>
-										<h4>Horarios de atendimentos</h4>
+										<h4>Horários de atendimentos</h4>
 										<p>Os horários disponíveis para cada fisioterapeuta poderão ser conferidos na aba de lista de fisios, no seu perfil.</p>
 										<!-- <ul class="time-sidual">
 											<li class="day">Segunda - Sexta <span>08h00-20h00</span></li>
@@ -280,7 +270,7 @@
 							<div class="signle-icon">
 								<i class="icofont icofont-ambulance-cross"></i>
 							</div>
-							<h3>Ajuda de emergencia</h3>
+							<h3>Ajuda de emergência</h3>
 							<p>Ligue 192.</p>
 						</div>
 						<!-- End Single features -->
@@ -382,7 +372,7 @@
 							fornecer serviços de agendamento de consultas de fisioterapia excepcionais e acessiveis. </p>
 
 							<p> <h4>Missão</h4>
-							Nossa missão é promover a saúde e o bem-estar, oferecendo agendamentos de consutltas de fisioterapia personalizados e de
+							Nossa missão é promover a saúde e o bem-estar, oferecendo agendamentos de consultas de fisioterapia personalizados e de
 							alta qualidade. </p>
 
 							<p><h4>Visão</h4>
@@ -462,7 +452,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>Descrição detalhada dos diferentes tipos de serviços oferecidos, como fisioterapia ortopédica,neurológica, esportiva, etc.</h2>
+							<h2>Descrição detalhada dos diferentes tipos de serviços oferecidos, como fisioterapia ortopédica, neurológica, esportiva, etc.</h2>
 							<img src="{% static 'img/section-img.png' %}" alt="#">
 							<p>Existem diversos tipos de fisioterapia, cada um voltado para tratar diferentes condições e necessidades dos pacientes.</p>
 						</div>
@@ -473,7 +463,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-prescription"></i>
-							<h4><a href="{% url 'descricao' %}">Fisioterapia ortopédica</a></h4>
+							<h4><a href="{% url 'descricao_ost' %}">Fisioterapia ortopédica</a></h4>
 							<p>Concentra-se no tratamento de lesões musculoesqueléticas, como entorses, fraturas, luxações, tendinites e recuperação
 							pós-cirúrgica. O objetivo é restaurar a função e a mobilidade das articulações afetadas.</p>	
 						</div>
@@ -483,7 +473,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-brain-alt"></i>
-							<h4><a href="{% url 'pagina_nao_encontrada' %}">Fisioterapia neurológica</a></h4>
+							<h4><a href="{% url 'descricao_neuro' %}">Fisioterapia neurológica</a></h4>
 							<p>Direcionada para pacientes com lesões ou doenças do sistema nervoso central ou periférico, como AVC (Acidente Vascular
 							Cerebral), lesões medulares, esclerose múltipla, paralisia cerebral, entre outras. O tratamento visa melhorar a
 							mobilidade, coordenação, equilíbrio e função neuromuscular. </p>	
@@ -494,7 +484,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-runner-alt-1"></i>
-							<h4><a href="{% url 'pagina_nao_encontrada' %}">Fisioterapia esportiva</a></h4>
+							<h4><a href="{% url 'descricao_esportiva' %}">Fisioterapia esportiva</a></h4>
 							<p>Destinada a atletas e pessoas ativas, visa prevenir lesões, otimizar o desempenho atlético e auxiliar na recuperação de
 							lesões esportivas. Inclui técnicas de reabilitação específicas para cada modalidade esportiva, treinamento de força,
 							flexibilidade e condicionamento físico. </p>	
@@ -505,7 +495,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-baby"></i>
-							<h4><a href="{% url 'pagina_nao_encontrada' %}">Fisioterapia Pediátrica</a></h4>
+							<h4><a href="{% url 'descricao_pediatrica' %}">Fisioterapia Pediátrica</a></h4>
 							<p>Especializada no tratamento de crianças com condições neurológicas, ortopédicas, respiratórias ou congênitas. O objetivo
 							é maximizar o desenvolvimento motor, cognitivo e social da criança e facilitar a participação nas atividades diárias. </p>	
 						</div>
@@ -515,7 +505,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-lungs"></i>
-							<h4><a href="{% url 'pagina_nao_encontrada' %}">Fisioterapia Respiratória</a></h4>
+							<h4><a href="{% url 'descricao_respiratoria' %}">Fisioterapia Respiratória</a></h4>
 							<p>Enfoca o tratamento de condições respiratórias, como asma, bronquite, enfisema, fibrose cística e outras doenças
 							pulmonares. Inclui técnicas de expansão pulmonar, exercícios respiratórios, drenagem postural e uso de dispositivos de
 							assistência respiratória. </p>	
@@ -526,7 +516,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-man-in-glasses"></i>
-							<h4><a href="{% url 'pagina_nao_encontrada' %}">Fisioterapia Geriátrica</a></h4>
+							<h4><a href="{% url 'descricao_geriatrica' %}">Fisioterapia Geriátrica</a></h4>
 							<p>Focada no tratamento de idosos, visa melhorar a qualidade de vida, promover a independência funcional e prevenir quedas
 							e lesões relacionadas à idade. Inclui exercícios de fortalecimento, alongamento, equilíbrio e coordenação, bem como
 							manejo da dor e melhoria da mobilidade. </p>	
