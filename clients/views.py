@@ -25,6 +25,7 @@ def voltar(request):
     else:
         return HttpResponseRedirect(reverse('index'))
 
+
 def registration_client(request):
     if request.method == 'POST':
         formClient = ClienteForm(request.POST)
