@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name='copyright' content=''>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'css/esqueceu_senha.css' %}">
+    <link rel="stylesheet" href="{% static 'css/esqueceu.css' %}">
 
 
     <!-- Title -->
@@ -100,6 +100,7 @@
                 <div class="inner">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-12">
+
                             <!-- Mobile Nav -->
                             <div class="mobile-nav"></div>
                             <!-- End Mobile Nav -->
@@ -131,9 +132,9 @@
     <div class="container">
             <section class="clients_info">
                 <div class="column">
+                    <h2>Preencha com seu e-mail para receber instruções sobre como redefinir sua senha.</h2>
                     <br></br>
-                    <label>Preencha com seu e-mail para receber instruções sobre como redefinir sua senha.</label>
-                    <br></br>
+
                     <form method="post">
                         
                         {% csrf_token %}
