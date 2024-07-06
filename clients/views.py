@@ -4,14 +4,15 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
-from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfileForm, ProfessionalProfileForm, CustomizadoPasswordChangeForm
+from clients.forms import ClienteForm, ProfissionalForm, ConsultaForm, UserProfileForm, ProfessionalProfileForm, CustomizadoPasswordChangeForm, ContactForm
 from clients.models import Cliente, Profissional, Consulta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .decorators import client_required, profissional_required
 from django.views.decorators.cache import never_cache
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from django.core.mail import EmailMessage
 
 
 
@@ -240,7 +241,32 @@ def profile_client(request):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            
+            full_message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+            email_message = EmailMessage(
+                subject=f"Contact Form Submission: {subject}",
+                body=full_message,
+                from_email='suportefisioa@gmail.com',
+                to=['suportefisioa@gmail.com'],
+                reply_to=[email]
+            )
+            email_message.send()
+
+            return redirect('success')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
+
+def success(request):
+   return HttpResponse('Success!')
 
 
 def marcar_consulta(request, nome_fisio, especialidade):

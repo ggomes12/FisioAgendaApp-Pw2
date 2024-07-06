@@ -1,250 +1,107 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-header {
-    text-align: center;
-}
-
-.photo-frame {
-    border: 5px solid #ddd;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 120px; 
-    height: 120px; 
-    margin: 0 auto 10px;
-}
-
-
-img {
-    max-width: 100px;
-    border-radius: 50%;
-}
-
-h1 {
-    color: #333;
-}
-
-.cliente_info {
-    max-width: 100%;
-    margin: 50px auto;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.column {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.listaProfiss {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-h2 {
-    background-color: #60b7f1;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-}
-
-h3 {
-
-    color: #044e80;
-    padding: 5px;
-    text-align: center;
-}
-
-
-p {
-    line-height: 1.5;
-}
-
-
-.chat-container {
-    max-width: 100%;
-    margin: 50px auto;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.chat-header {
-    /* background-color: #60b7f1; */
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-}
-
-.chat-body {
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.message {
-    background-color: #ecf0f1;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-.message.sent {
-    background-color: #60b7f1;
-    color: #fff;
-    align-self: flex-end;
-}
-
-.chat-footer {
-    padding: 10px;
+/* Estilos para a seção de informações do cliente */
+.clients_info {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.chat-footer textarea {
-    padding: 12px;
-    margin-bottom: 10px;
+.clients_info .column {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Centraliza o h1 */
+header h1 {
+    text-align: center;
+}
+
+.clients_info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.clients_info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clients_info table th,
+.clients_info table td {
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    resize: none;
 }
 
-.chat-footer button {
-    background-color: #60b7f1;
+/* Estilos para a lista de profissionais */
+.listaProfiss {
+    margin-bottom: 20px;
+}
+
+.listaProfiss label,
+.listaProfiss input[type="text"],
+.listaProfiss button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.listaProfiss input[type="text"],
+.listaProfiss button {
+    width: 100%;
+    padding: 10px;
+}
+
+.listaProfiss button {
+    background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-.chat-footer button:hover {
-    background-color: #206391;
+.listaProfiss button:hover {
+    background-color: #0056b3;
 }
 
 
-button[type="submit"] {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Estilos para a foto do perfil */
+.photo-frame {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ddd;
 }
 
-button[type="submit"]:hover {
-    background-color: #2980b9;
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-@media only screen and (max-width: 530px) {
-    .container {
-        max-width: 100%;
-    }
+/* Centraliza os h1 e h2 em todas as seções */
 
-    h1 {
-        font-size: 20px;
-    }
+section h2 {
+    text-align: center;
+}
 
-    h2 {
-        padding: 6px;
-        text-align: center;
-        font-size: 17px;
-    }
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 30px 15px 30px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'logout voltar';
+}
 
-    h3 {
-        padding: 3px;
-        text-align: center;
-        font-size: 17px;
-    }
+.btn-logout {
+    grid-area: logout;
+    /* background-color: rgb(25, 140, 247) !important; */
+}
 
-    .chat-header {
-        max-width: 100%;
-        text-align: center;
-    }
 
-    .chat-body {
-        max-width: 100%;
-        padding: 10px;
-        max-width: 100%;
-        overflow-y: auto;
-    }
-
-    .message {
-        max-width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-    }
-
-    .message.sent {
-        max-width: 100%;
-        color: #fff;
-        align-self: flex-end;
-    }
-
-    .chat-footer {
-        max-width: 100%;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .chat-footer textarea {
-        max-width: 100%;
-        padding: 12px;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        resize: none;
-    }
-
-    .chat-footer button {
-        max-width: 100%;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    button[type="submit"] {
-        max-width: 100%;
-        margin-top: 10px;
-        padding: 5px 5px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+.btn-voltar {
+    grid-area: voltar;
 }

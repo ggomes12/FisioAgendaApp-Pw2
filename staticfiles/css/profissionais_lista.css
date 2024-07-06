@@ -1,56 +1,62 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+/* Estilos para a seção de informações do cliente */
+.clients_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
+.clients_info .column {
     width: 100%;
+    margin-bottom: 30px;
 }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
+/* Centraliza o h1 */
+header h1 {
+    text-align: center;
+}
+
+.clients_info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.clients_info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clients_info table th,
+.clients_info table td {
     padding: 10px;
+    border: 1px solid #ddd;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-table tbody a {
-    color: #000;
-}
-
-.filter {
+/* Estilos para a lista de profissionais */
+.listaProfiss {
     margin-bottom: 20px;
 }
 
-.filter form div {
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
+.listaProfiss label,
+.listaProfiss input[type="text"],
+.listaProfiss button {
+    display: block;
+    margin-bottom: 10px;
 }
 
-.filter form div label {
-    margin-bottom: 8px;
+.listaProfiss input[type="text"],
+.listaProfiss button {
+    width: 100%;
+    padding: 10px;
 }
 
-.filter_btn {
-    padding: 8px 20px;
-    background-color: #133b66;
+.listaProfiss button {
+    background-color: #007bff;
     color: #fff;
-    border-radius: 10px;
-    font-size: 15px;
+    border: none;
     cursor: pointer;
+}
+
+.listaProfiss button:hover {
+    background-color: #0056b3;
 }

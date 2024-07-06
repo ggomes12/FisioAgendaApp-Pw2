@@ -161,7 +161,8 @@
 								<h2>Contate-nos</h2>
 								<p>Preencha o formulário abaixo e nos envie uma mensagem com suas dúvidas.</p>
 								<!-- Form -->
-								<form class="form" method="post" action="../mail/mail.php">
+								<form class="form" method="post" action="{% url 'contact-nos' %}">
+									{% csrf_token %}
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
@@ -191,9 +192,6 @@
 										<div class="col-12">
 											<div class="form-group login-btn">
 												<button class="btn" type="submit">Enviar</button>
-											</div>
-											<div class="checkbox">
-												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Você já está escrito na nossa Newsletter ?</label>
 											</div>
 										</div>
 									</div>

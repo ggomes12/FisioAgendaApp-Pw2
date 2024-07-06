@@ -1,185 +1,133 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+/* Estilos para a seção de informações do profissional */
+.profissional_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.profissional_info .column {
+    width: 100%;
+    margin-bottom: 30px;
 }
 
-header {
+/* Centraliza o h1 */
+header h1 {
     text-align: center;
 }
 
-.photo-frame {
-    border: 5px solid #ddd;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 120px; 
-    height: 120px; 
-    margin: 0 auto 10px;
+.profissional_info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
 }
 
-img {
-    max-width: 100px;
-    border-radius: 50%;
-}
-
-h1 {
-    color: #333;
-}
-
-.profissional_info {
-    max-width: 100%;
-    margin: 50px auto;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.column {
-    flex: 1;
-    margin-right: 20px;
-}
-
-table {
+.profissional_info table {
     width: 100%;
     border-collapse: collapse;
+}
+
+.profissional_info table th,
+.profissional_info table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Estilos para a agenda de consultas */
+.agenda_consultas {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.agenda_consultas h2 {
     margin-bottom: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-h2 {
-    background-color: #60b7f1;
-    color: #fff;
-    padding: 10px;
+    font-size: 24px;
     text-align: center;
 }
 
-p {
-    line-height: 1.5;
+.agenda_consultas table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-
-.agenda {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    row-gap: 10px;
-    column-gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.dia-agendado {
-    width: 80px;
+.agenda_consultas table th,
+.agenda_consultas table td {
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
+}
+
+.btn-concluir {
+    border: none;
+    padding: 6px 12px;
     cursor: pointer;
 }
 
-.dia-agendado:hover {
-    background-color: #f2f2f2;
+.btn-concluir.verde {
+    background-color: green;
+    color: white;
 }
 
-.marcadores {
-    display: inline-block;
-    flex-direction: row;
+.btn-concluir.vermelho {
+    background-color: red;
+    color: white;
+}
+
+.btn-concluir[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .legenda-vermelha {
     background-color: red;
-    font-family: 'Arial', sans-serif;
-    width: 20px;
-    padding: 5px;
-    height: 20px;
-    border-radius: 5px;
+    color: white;
+    padding: 4px 8px;
+    margin-right: 10px;
 }
 
 .legenda-verde {
     background-color: green;
-    font-family: 'Arial', sans-serif;
-    padding: 5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
+    color: white;
+    padding: 4px 8px;
 }
 
-@media only screen and (max-width: 530px) {
-    .container {
-        max-width: 100%;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    h2 {
-        padding: 6px;
-        text-align: center;
-        font-size: 17px;
-    }
-
-    p {
-        line-height: 1.5;
-    }
+section h2 {
+    text-align: center;
+}
 
 
-    .agenda {
-        max-width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        row-gap: 10px;
-        column-gap: 10px;
-        margin-top: 20px;
-        flex-wrap: wrap;
-    }
+/* Estilos para a foto do perfil */
+.photo-frame {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ddd;
+}
 
-    .dia-agendado {
-        max-width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        text-align: center;
-        cursor: pointer;
-    }
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    .marcadores {
-        max-width: 100%;
-        display: inline-block;
-        flex-direction: row;
-    }
+/* botoes logout e voltar */
 
-    .legenda-vermelha {
-        max-width: 100%;
-        padding: 5px;
-        height: 20px;
-        border-radius: 5px;
-    }
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 40px 15px 30px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'logout voltar';
+}
 
-    .legenda-verde {
-        max-width: 100%;
-        padding: 5px;
-        width: 20px;
-        height: 20px;
-        border-radius: 5px;
-    }
+.btn-logout {
+    grid-area: logout;
+}
+
+.btn-voltar {
+    grid-area: voltar;
 }
