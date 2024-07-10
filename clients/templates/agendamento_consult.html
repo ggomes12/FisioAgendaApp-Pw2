@@ -139,15 +139,17 @@
                         {% endif %}
             
                         {{ form.profissional }} <!-- Campo oculto -->
-            
-                        <label for="{{ form.data.id_for_label }}">Selecione a Data da Consulta:</label>
-                        {{ form.data }}
-            
+
                         <label for="{{ form.horario_inicial.id_for_label }}">Horário de início da Consulta:</label>
                         {{ form.horario_inicial }}
 
                         <label for="{{ form.horario_final.id_for_label }}">Horário de término da Consulta:</label>
                         {{ form.horario_final }}
+            
+                        <label for="{{ form.data.id_for_label }}">Selecione a Data da Consulta:</label>
+                        {{ form.data }}
+            
+                        
             
                         <button type="submit">Agendar</button>
 
