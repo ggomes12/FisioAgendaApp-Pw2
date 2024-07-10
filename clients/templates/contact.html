@@ -148,93 +148,47 @@
             <div class="container">
                 <div class="inner">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="contact-us-left">
-                                <!--Start Google-map -->
-                                <div id="myMap"></div>
-                                <!--/End Google-map -->
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact-us-form">
-                                <h2>Contate-nos</h2>
-                                <p>Preencha o formulário abaixo e nos envie uma mensagem com suas dúvidas.</p>
-                                <!-- Form -->
-                                <form id="contactForm" class="form" method="post" action="{% url 'contact-nos' %}">
-                                    {% csrf_token %}
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" name="name" placeholder="Nome" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="email" name="email" placeholder="Email" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" name="phone" placeholder="Celular" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" name="subject" placeholder="Assunto" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <textarea name="message" placeholder="Escreva sua mensagem" required=""></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group login-btn">
-                                                <button class="btn" type="submit">Enviar</button>
-                                            </div>
+                        <div class="contact-us-form">
+                            <h2>Contate-nos</h2>
+                            <p>Preencha o formulário abaixo e nos envie uma mensagem com suas dúvidas.</p>
+                            <!-- Form -->
+                            <form id="contactForm" class="form" method="post" action="{% url 'contact-nos' %}">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" name="name" placeholder="Nome" required="">
                                         </div>
                                     </div>
-                                </form>
-                                <!--/ End Form -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-info">
-                    <div class="row">
-                        <!-- single-info -->
-                        <div class="col-lg-4 col-12 ">
-                            <div class="single-info">
-                                <i class="icofont icofont-ui-call"></i>
-                                <div class="content">
-                                    <h3>89 9 0000-9988</h3>
-                                    <p>infos@gmail.com</p>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Email" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" name="phone" placeholder="Celular" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" name="subject" placeholder="Assunto" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <textarea name="message" placeholder="Escreva sua mensagem" required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group login-btn">
+                                            <button class="btn" type="submit">Enviar</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
+                            <!--/ End Form -->
                         </div>
-                        <!--/End single-info -->
-                        <!-- single-info -->
-                        <div class="col-lg-4 col-12 ">
-                            <div class="single-info">
-                                <i class="icofont-google-map"></i>
-                                <div class="content">
-                                    <h3>Algum lugar, pra relaxar</h3>
-                                    <p>eu vou pedir pros anjos cuidarem de mim</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/End single-info -->
-                        <!-- single-info -->
-                        <div class="col-lg-4 col-12 ">
-                            <div class="single-info">
-                                <i class="icofont icofont-wall-clock"></i>
-                                <div class="content">
-                                    <h3>Segundas - Sabado: 08am - 21pm</h3>
-                                    <p>Domingo eh fechado</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/End single-info -->
                     </div>
                 </div>
             </div>
