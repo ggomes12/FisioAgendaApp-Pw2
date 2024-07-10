@@ -383,26 +383,27 @@
 
         <script>
             $(document).ready(function() {
-                $('#contactForm').on('submit', function(event) {
-                    event.preventDefault();
-                    var form = $(this);
-                    $.ajax({
-                        type: form.attr('method'),
-                        url: form.attr('action'),
-                        data: form.serialize(),
-                        success: function(response) {
-                            if (response.success) {
-                                $('#successPopup').modal('show');
-                            } else {
-                                $('#failurePopup').modal('show');
-                            }
-                        },
-                        error: function() {
-                            $('#failurePopup').modal('show');
-                        }
-                    });
-                });
-            });
+				$('#contactForm').on('submit', function(event) {
+					event.preventDefault();
+					var form = $(this);
+					$.ajax({
+						type: form.attr('method'),
+						url: form.attr('action'),
+						data: form.serialize(),
+						success: function(response) {
+							if (response.success) {
+								$('#successPopup').modal('show');
+								form[0].reset(); /
+							} else {
+								$('#failurePopup').modal('show');
+							}
+						},
+						error: function() {
+							$('#failurePopup').modal('show');
+						}
+					});
+				});
+			});
         </script>
     </body>
 </html>
