@@ -1,0 +1,96 @@
+
+form {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.input-wrap {
+    width: 100%;
+}
+
+h1 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    /* color: #555; */
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 17px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 60px 55px 100px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'proffessional register voltar'
+        'forgot forgot forgot';
+}
+
+
+
+.btn-login {
+    grid-area: login;
+    margin-top: 50px;
+}
+
+.btn-proffessional{
+    grid-area: proffessional;
+}
+
+.btn-register {
+    grid-area: register;
+}
+
+.btn-forgot {
+    grid-area: forgot;
+}
+
+.btn-voltar {
+    grid-area: voltar;
+
+}
+
+
+.or-separator {
+    text-align: center;
+    position: relative;
+    margin: 80px 70px;
+}
+
+.or-separator:before,
+.or-separator:after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: #ccc;
+    width: 40%;
+    position: absolute;
+    top: 50%;
+}
+
+.or-separator:before {
+    left: 0;
+}
+
+.or-separator:after {
+    right: 0;
+}

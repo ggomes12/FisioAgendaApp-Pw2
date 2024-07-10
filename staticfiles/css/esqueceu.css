@@ -1,0 +1,61 @@
+/* Estilos para a seção de informações do cliente */
+.clients_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.clients_info .column {
+    width: 100%;
+    padding-top: 350px;
+
+}
+
+/* Centraliza o h1 */
+header h1 {
+    text-align: center;
+
+}
+
+.clients_info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.clients_info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clients_info table th,
+.clients_info table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+
+
+
+.buttons-wrap {
+    display: grid;
+    text-align: center;
+    column-gap: 16px;
+    row-gap: 30px;
+    margin: 60px 55px 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'esqueceu voltar';
+}
+
+
+
+.btn-esqueceu {
+    grid-area: esqueceu;
+}
+
+.btn-voltar {
+    grid-area: voltar;
+}
