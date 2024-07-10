@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .decorators import client_required, profissional_required
 from django.views.decorators.cache import never_cache
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 from django.core.mail import EmailMessage
 
@@ -260,13 +260,15 @@ def contact(request):
             )
             email_message.send()
 
-            return redirect('success')
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors})
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
 
-def success(request):
-   return HttpResponse('Success!')
+# def success(request):
+#    return HttpResponse('Success!')
 
 
 def marcar_consulta(request, nome_fisio, especialidade):

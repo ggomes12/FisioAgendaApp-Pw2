@@ -32,7 +32,7 @@ urlpatterns = [
      # path gerais
     path('voltar/', views.voltar, name='voltar'),
     path('contact-nos/', views.contact, name='contact-nos'),
-    path('success/', views.success, name='success'),
+    #path('success/', views.success, name='success'),
     path('marcar_consulta/<str:nome_fisio>/<str:especialidade>/',
          views.marcar_consulta, name='marcar_consulta'),
     path('marcar_concluido/<int:consulta_id>/',
