@@ -13,6 +13,10 @@ from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 from django.core.mail import EmailMessage
+import json
+from django.utils import timezone
+from django.core.serializers.json import DjangoJSONEncoder
+
 
 
 
@@ -279,17 +283,23 @@ def marcar_consulta(request, nome_fisio, especialidade):
         messages.error(request, 'Profissional não encontrado.')
         return redirect('marcar_consulta')
 
+    consultas = Consulta.objects.filter(
+        profissional=profissional, data__gte=timezone.now()).order_by('data')
+
+    dias_indisponiveis = list(consultas.values_list('data', flat=True))
+    dias_indisponiveis_json = json.dumps(
+        dias_indisponiveis, cls=DjangoJSONEncoder)
+
     if request.method == 'POST':
         form = ConsultaForm(request.POST)
         if form.is_valid():
             nova_consulta = form.save(commit=False)
-            nova_consulta.profissional = profissional  
+            nova_consulta.profissional = profissional
 
             data = form.cleaned_data['data']
             horario_inicial = form.cleaned_data['horario_inicial']
             horario_final = form.cleaned_data['horario_final']
 
-            # Verifica se ja tem prof com agendamento para data e hora
             if Consulta.objects.filter(data=data, horario_inicial=horario_inicial, horario_final=horario_final, profissional=profissional).exists():
                 messages.error(
                     request, 'Já existe uma consulta agendada para este médico, dia e horário.')
@@ -303,8 +313,12 @@ def marcar_consulta(request, nome_fisio, especialidade):
     else:
         form = ConsultaForm(initial={'profissional': profissional})
 
-    return render(request, 'agendamento_consult.html', {'form': form, 'profissional': profissional})
-
+    return render(request, 'agendamento_consult.html', {
+        'form': form,
+        'profissional': profissional,
+        'consultas': consultas,
+        'dias_indisponiveis_json': dias_indisponiveis_json
+    })
 
 @login_required
 @client_required
