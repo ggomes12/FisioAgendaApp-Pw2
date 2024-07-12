@@ -278,7 +278,7 @@ def contact(request):
 def marcar_consulta(request, nome_fisio, especialidade):
     try:
         profissional = Profissional.objects.get(
-            user__username=nome_fisio, especialidade=especialidade)
+            user__username__iexact=nome_fisio, especialidade=especialidade) 
     except Profissional.DoesNotExist:
         messages.error(request, 'Profissional não encontrado.')
         return redirect('marcar_consulta')

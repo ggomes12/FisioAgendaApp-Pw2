@@ -4,18 +4,26 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from clients.models import Cliente, Consulta, Profissional
 from django.core.validators import EmailValidator
+from django.core.exceptions import ValidationError
+from .validators import *
+
 
 class ClienteForm(UserCreationForm):
     cpf = forms.CharField(max_length=14)
     email = forms.EmailField(required=True)
     telefone = forms.CharField(max_length=15)
     endereco = forms.CharField(max_length=255)
-    
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password1',
                   'password2', 'telefone', 'endereco',  'cpf']
+
+    def clean_cpf(self):
+        cpf = self.cleaned_data['cpf']
+        if not validarCPF(cpf):
+            raise ValidationError('CPF inválido')
+        return cpf
 
 
 class ProfissionalForm(UserCreationForm):
@@ -66,10 +74,11 @@ class UserProfileForm(forms.ModelForm):
 
     def save(self, commit=True):
         user = super(UserProfileForm, self).save(commit=False)
-        
+
         if self.cleaned_data['telefone'] and self.cleaned_data['endereco']:
             try:
-                cliente = user.cliente if hasattr(user, 'cliente') else Cliente(user=user)
+                cliente = user.cliente if hasattr(
+                    user, 'cliente') else Cliente(user=user)
                 cliente.telefone = self.cleaned_data['telefone']
                 cliente.endereco = self.cleaned_data['endereco']
                 cliente.save()
@@ -78,7 +87,8 @@ class UserProfileForm(forms.ModelForm):
 
         if self.cleaned_data['image']:
             try:
-                cliente = user.cliente if hasattr(user, 'cliente') else Cliente(user=user)
+                cliente = user.cliente if hasattr(
+                    user, 'cliente') else Cliente(user=user)
                 cliente.image = self.cleaned_data['image']
                 cliente.save()
             except Cliente.DoesNotExist:
@@ -87,7 +97,7 @@ class UserProfileForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-    
+
 
 class ProfessionalProfileForm(forms.ModelForm):
     telefone = forms.CharField(max_length=15, required=False)
@@ -95,14 +105,14 @@ class ProfessionalProfileForm(forms.ModelForm):
     especialidade = forms.CharField(max_length=100, required=False)
     crefito = forms.CharField(max_length=20, required=False)
     image = forms.ImageField(required=False)
-    
+
     class Meta:
         model = User
         fields = ['username', 'email']
-        
+
     def __init__(self, *args, **kwargs):
         super(ProfessionalProfileForm, self).__init__(*args, **kwargs)
-        
+
         if self.instance.pk:
             try:
                 profissional = self.instance.profissional
@@ -118,7 +128,8 @@ class ProfessionalProfileForm(forms.ModelForm):
 
         if self.cleaned_data['telefone'] and self.cleaned_data['endereco']:
             try:
-                profissional = user.profissional if hasattr(user, 'profissional') else Profissional(user=user)
+                profissional = user.profissional if hasattr(
+                    user, 'profissional') else Profissional(user=user)
                 profissional.telefone = self.cleaned_data['telefone']
                 profissional.endereco = self.cleaned_data['endereco']
                 profissional.especialidade = self.cleaned_data['especialidade']
@@ -129,7 +140,8 @@ class ProfessionalProfileForm(forms.ModelForm):
 
         if self.cleaned_data['image']:
             try:
-                profissional = user.profissional if hasattr(user, 'profissional') else Profissional(user=user)
+                profissional = user.profissional if hasattr(
+                    user, 'profissional') else Profissional(user=user)
                 profissional.image = self.cleaned_data['image']
                 profissional.save()
             except Profissional.DoesNotExist:
@@ -168,7 +180,8 @@ class CustomizadoPasswordChangeForm(PasswordChangeForm):
             {'class': 'form-control'})
         self.fields['new_password2'].widget.attrs.update(
             {'class': 'form-control'})
-        
+
+
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=100)
     email = forms.CharField(validators=[EmailValidator()])

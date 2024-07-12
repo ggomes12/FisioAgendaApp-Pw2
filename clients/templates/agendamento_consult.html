@@ -5,10 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/agendamento_consults.css' %}">
-    <script defer src="{% static 'js/agendamento_consults.js' %}"></script>
+    <script defer src="{% static 'js/agendamento_consultas.js' %}"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script defer src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
     <!-- <script defer src="{% static 'js/profile_clients.js' %}"></script> -->
     <title>Perfil clientes</title>
 
@@ -127,7 +129,7 @@
                 <div class="column">
                     <br></br>
                     <h2>Realize seu Agendamento</h2>
-                    <h3>Dias Disponíveis</h3>
+                    <h3>Dias Indisponíveis</h3>
                     <ul id="dias-disponiveis">
                         {% for consulta in consultas %}
                             <li>{{ consulta.data }} - {{ consulta.horario_inicial }} às {{ consulta.horario_final }}</li>
@@ -154,7 +156,10 @@
             
                         <label for="{{ form.data.id_for_label }}">Selecione a Data da Consulta:</label>
                         {{ form.data }}
-            
+
+                        <!-- <label for="datepicker">Selecione a Data da Consulta:</label>
+                        {{ form.data }} -->
+                        <br></br>
                         
             
                         <button type="submit">Agendar</button>
@@ -176,6 +181,9 @@
                 </div>
             </section>
         </div>
+        <script>
+            var diasIndisponiveis = JSON.parse('{{ dias_indisponiveis_json|escapejs }}');
+        </script>
         
 
         <!-- Footer Area -->

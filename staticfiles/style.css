@@ -5,6 +5,14 @@ body{
 	font-size:14px;
 	color:#888;
 }
+
+.ui-datepicker {
+	background: #fff;
+	border: 1px solid #555;
+	padding: 10px;
+	border-radius: 10px;
+}
+
 .pro-features {
 	position: fixed;
 	right: -300px;

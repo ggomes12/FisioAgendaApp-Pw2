@@ -43,8 +43,8 @@ class Consulta(models.Model):
     profissional = models.ForeignKey(
         Profissional, null=True, on_delete=models.SET_NULL)
     data = models.DateField()
-    horario_inicial = models.TimeField(default='08:00:00')
-    horario_final = models.TimeField(default='17:00:00')
+    horario_inicial = models.TimeField()
+    horario_final = models.TimeField()
     status = models.CharField(max_length=20, choices=[(
         'em aberto', 'Em Aberto'), ('concluido', 'Concluído')], default='em aberto')
 
