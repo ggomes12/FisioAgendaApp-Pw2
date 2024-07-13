@@ -15,3 +15,11 @@ def validarCPF(cpf):
         return False
 
     return True
+
+
+def validarCREFITO(crefito):
+    crefito = re.sub('r/D', '', crefito)
+    if len(crefito) != 8 or not crefito.isdigit():
+        return False
+
+    return True

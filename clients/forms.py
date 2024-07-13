@@ -37,6 +37,12 @@ class ProfissionalForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2',
                   'telefone', 'endereco', 'especialidade', 'crefito']
+        
+    def clean_crefito(self):
+        crefito = self.cleaned_data['crefito']
+        if not validarCREFITO(crefito):
+            raise ValidationError('crefito inválido')
+        return crefito
 
 
 class ConsultaForm(forms.ModelForm):
