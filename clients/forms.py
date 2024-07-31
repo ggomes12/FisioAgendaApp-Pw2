@@ -19,11 +19,11 @@ class ClienteForm(UserCreationForm):
         fields = ['username', 'email', 'password1',
                   'password2', 'telefone', 'endereco',  'cpf']
 
-    def clean_cpf(self):
-        cpf = self.cleaned_data['cpf']
-        if not validarCPF(cpf):
-            raise ValidationError('CPF inválido')
-        return cpf
+    # def clean_cpf(self):
+    #     cpf = self.cleaned_data['cpf']
+    #     if not validarCPF(cpf):
+    #         raise ValidationError('CPF inválido')
+    #     return cpf
 
 
 class ProfissionalForm(UserCreationForm):
@@ -38,11 +38,11 @@ class ProfissionalForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2',
                   'telefone', 'endereco', 'especialidade', 'crefito']
         
-    def clean_crefito(self):
-        crefito = self.cleaned_data['crefito']
-        if not validarCREFITO(crefito):
-            raise ValidationError('crefito inválido')
-        return crefito
+    # def clean_crefito(self):
+    #     crefito = self.cleaned_data['crefito']
+    #     if not validarCREFITO(crefito):
+    #         raise ValidationError('crefito inválido')
+    #     return crefito
 
 
 class ConsultaForm(forms.ModelForm):
